@@ -15,7 +15,7 @@
     (om/transact! (data/components)
                   [:components]
                   (fn [components]
-                    (merge components {:w (- w) :h (- h)}))
+                    (merge components {:width (- w) :height (- h)}))
                   :window-resize)))
 
 (defn add-window-resize-listener [root-owner]
@@ -25,6 +25,4 @@
   (will-mount [_]
               (add-window-resize-listener owner))
   (render-state [_ state]
-                (om/build layout/build-layout-components (:components app)
-                          {:react-key "root-component"
-                           :state (:components app)})))
+                (layout/build-components (:components app))))

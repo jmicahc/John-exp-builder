@@ -3,56 +3,100 @@
             [exp-builder.data :as data]
             [com.rpl.specter :as sp :refer [compiled-select]]))
 
-(defn calc-dim-helper [node dim orientation]
+(defn dim-node? [node axis]
+  (when-let [v (axis node)]
+    (let [node {:path (:path node) :coef (:coef node) :num v}]
+      (list node))))
+
+(defn cartesian-product [node]
+    "f: List X List X List --> List X List
+
+     Computes cartesian cross product of list of lists of lists of elements.
+
+     (((a b) (c d)) ((e f) (g h))) ==> ((a b e f) (a b g h) (c d e f) (c d g h))"
+    (reduce (fn [left right]
+              (mapcat (fn [lhs] (map #(concat lhs %) right)) left))
+            (first node)
+            (next node)))
+
+(defn LxLxL->LxL [parent-node children]
+  (let [t (mapcat (partial map (partial concat parent-node))
+                  children)]
+    (if (empty? t) (list parent-node) t)))
+
+(defn orthogonal? [parent axis]
+  "Returns true if parent node is a partition of children
+   that is orthogonal to axis. Otherwise returns false."
   (cond
-    (and (= (:type node) orientation) (dim node))
-    (cons  {:path (:path node) :coef (:coef node)  :num (dim node)}
-           (mapcat #(list (calc-dim-helper % dim orientation)) (:C node)))
+    (and (= :height axis) (= :C (:type parent))) true
+    (and (= :width axis) (= :C (:type parent))) false
+    (and (= :height axis) (= :R (:type parent))) false
+    (and (= :width axis) (= :R (:type parent))) true))
 
-    (dim node)
-    (cons {:path (:path node) :coef (:coef node) :num (dim node)}
-          (mapcat #(calc-dim-helper % dim orientation) (:C node)))
-    
-    (= (:type node) orientation)
-    (mapcat #(list (calc-dim-helper % dim orientation)) (:C node))
+(defn *equations* [parent axis]
+  "f: G --> List X List
 
-    :true
-    (mapcat #(calc-dim-helper % dim orientation) (:C node))))
+   Given a directed acyclic graph of components, returns
+   a lists of lists, where each inner list represents
+   a linear equation for a path from left/top to right/bottom 
+   for axis = :width/:height. Each element of each equation has the 
+   form:
 
-(defn widths-tree [tree]
-  (calc-dim-helper tree :w :C))
+      {:path .. :coef .. :num ..}
 
-(defn heights-tree [tree]
-  (calc-dim-helper tree :h :R))
+   path --> [ (keyword | number)* ] (path to original component location)
+   coef --> :const | :var           (constant or variable algabraic term)
+   num  --> number                  (represnets height or width depending
+                                     on axis)
+   "
+  (cond
+    (orthogonal? parent axis)
+    (cartesian-product (map #(*equations* % axis) (:C parent)))
 
-(defn root->leaf-paths [tree]
-  "Takes a tree with map nodes that branches on 
-   lists. Returns a list of lists, where each inner list
-   cooresponds to a path in the tree from root to a leaf .
+    (empty? (:C parent))
+    (let [node (dim-node? parent axis)]
+      (if node (list node) nil))
 
-   NOTE, a single-branching tree is not handled properly. It's dimension
-   dimension is off by one. In this case, a list of vectors is 
-   returned (instead of a list containing a singleton list of vectors)."
-  (let [[maps lists] (split-with map? (filter (comp not empty?) tree))]
-    (cond
-      (empty? lists) maps
-      :else (map #(concat maps (root->leaf-paths %)) lists))))
+    :else (LxLxL->LxL (dim-node? parent axis)
+                      (map #(*equations* % axis) (:C parent)))))
 
-(defn tree-width-equations [component-tree]
-  "Takes component tree and returns a list of lists, where
-   the first element of each inner list is the window width,
-   and the rest is a path from left-to-right through layout
-   components. Thus the structure overal represents the set
-   of all paths from left-to-right through the layout 
-   components.
+(defn equations [parent axis]
+  "Root of tree handled uniquely since it represents window 
+   size, and therefore has definite width AND height.
+   Here we concatinate the nagation of width/height (depending
+   on axis) to each computed path, so that equations are in 
+   normal form (i.e. set equal to 0)."
+  (cond
+    (orthogonal? parent axis)
+    (map #(concat (dim-node? parent axis) %)
+         (cartesian-product (map #(*equations* % axis) (:C parent))))
 
-   Each inner list should be thought of as a linear equation
-   to be solved on resizing events."
-  (root->leaf-paths (widths-tree component-tree)))
+    :else (*equations* parent axis)))
 
-(defn tree-height-equations [component-tree]
-  "Like tree-width-euqations, but for heights."
-  (root->leaf-paths (heights-tree component-tree)))
+(defn prev-siblings [children-path child-path]
+  (let [children (get-in (data/root-children) children-path)]
+    (subvec children 0 (last child-path))))
+
+(defn cummulative-subvecs [coll]
+  (reduce (fn [acc x]
+            (conj acc (conj (or (peek acc) []) x))) [] coll))
+
+(defn root-node? [node]
+  (= (:path node) [:components]))
+
+(defn abs-position [node axis]
+  "Computes left/top position of node, depending on axis."
+  (let [path (:path node)]
+    (reduce #(if (root-node? %2) %1 (+ %1 (:num %2))) 0
+            (reduce (fn [acc paths] (concat acc (first paths))) '()
+                    (map (fn [[children-path child-path]]
+                           (let [parent-path (subvec children-path 0 (- (count children-path) 1))
+                                 parent (get-in (data/root-children) parent-path)
+                                 new-node (assoc parent :C (prev-siblings children-path child-path))]
+                             (when (orthogonal? new-node axis)
+                               (equations new-node axis))))
+                         (partition 2 (cummulative-subvecs path)))))))
+
 
 (defn *solve-linear-eq* [constants variables]
   "Solves a linear equation for zero."
@@ -77,7 +121,7 @@
                       #_(println eqs)
                       (if-let [equation (first eqs)]
                         (recur (next eqs)
-                               (assoc-in m (conj (:path equation) :w)
+                               (assoc-in m (conj (:path equation) :width)
                                          (:num equation)))
                         m))]
     (update equations app-tree)))
@@ -88,13 +132,11 @@
     :else (recur (next all-equations)
                  (width-equations->tree (first all-equations) app-tree))))
 
-
-
 (defn height-equations->tree [equations app-tree]
   (let [update (fn update [eqs m]
                       (if-let [equation (first eqs)]
                         (recur (next eqs)
-                               (assoc-in m (conj (:path equation) :h)
+                               (assoc-in m (conj (:path equation) :height)
                                          (:num equation)))
                         m))]
     (update equations app-tree)))
@@ -105,7 +147,6 @@
     :else (recur (next all-equations)
                  (height-equations->tree (first all-equations) app-tree))))
 
-
 (defn all-equations->tree [width-equations height-equations app-tree]
   (all-width-equations->tree width-equations
                              (all-height-equations->tree
@@ -114,10 +155,10 @@
 (defn update-layout! []
   (om/transact! (data/components)
                 (fn [tree]
-                  (let [height-equations (tree-height-equations (:components tree))
-                        width-equations (list (tree-width-equations (:components tree)))
+                  (let [height-equations (equations (:components tree) :height)
+                        width-equations  (equations (:components tree) :width)
                         solved-height-equations (solve-linear-eqs height-equations)
-                        solved-width-equations (solve-linear-eqs width-equations)]
+                        solved-width-equations  (solve-linear-eqs width-equations)]
                     (all-equations->tree solved-width-equations
                                          solved-height-equations
                                          tree)))))
