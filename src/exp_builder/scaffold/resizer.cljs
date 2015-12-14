@@ -1,7 +1,7 @@
 (ns exp-builder.scaffold.resizer
-  (:require [nom.ui :as ui]
-            [exp-builder.resize :as resize]
-            [om.core :as om]))
+  (:require #_[nom.ui :as ui]
+            #_[exp-builder.resize :as resize]
+            #_[om.core :as om]))
 
 
 #_(ui/defcomponent resize-top [state component {:keys [width]}])

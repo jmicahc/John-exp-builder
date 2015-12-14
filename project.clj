@@ -4,20 +4,20 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.7.0-RC1"]
-                 [org.clojure/clojurescript "1.7.48" :scope "provided"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.170"]
+                 [org.omcljs/om "1.0.0-alpha28"]
+                 [org.clojure/core.match "0.3.0-alpha4"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
-
-                 [org.clojars.the-kenny/nom "0.1.1"]
-                 [sablono "0.3.4" :exclusions [cljsjs/react]]
+                 [sablono "0.5.1" :exclusions [cljsjs/react]]
+                 [cljsjs/react "0.14.3-0"]
+                 [cljsjs/react-dom "0.14.3-1"]
+                 [cljsjs/react-dom-server "0.14.3-0"]
                  [com.rpl/specter "0.7.1"]
-                 
-                 [org.omcljs/om "0.9.0"]
+                 #_[com.lucasbradstreet/cljs-uuid-utils "1.0.2"]]
 
-                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]]
-
-  :plugins [[lein-cljsbuild "1.1.0"]
-            [lein-figwheel "0.4.0"]]
+  :plugins [[lein-cljsbuild "1.1.1"]
+            [lein-figwheel "0.5.0-1"]]
 
   :source-paths ["src"]
 
@@ -33,7 +33,7 @@
                          :asset-path "js/compiled/out"
                          :output-to "resources/public/js/compiled/exp_builder.js"
                          :output-dir "resources/public/js/compiled/out"
-                         :source-map-timestamp true }}
+                         :source-map-timestamp true}}
              {:id "min"
               :source-paths ["src"]
               :compiler {:output-to "app.js"

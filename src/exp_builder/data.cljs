@@ -1,102 +1,104 @@
 (ns ^:figwheel-always exp-builder.data
-    (:require [om.core :as om :include-macros true]))
-
-(def state (atom {:components {:type :R
-                               :width -800
-                               :height -800
-                               :display "flex"
-                               :flexDirection "row"
-                               :coef :const
-                               :C [{:width 300
-                                    :type :C
-                                    :display "flex"
-                                    :flexDirection "column"
-                                    :coef :var
-                                    :C [{:height 190
-                                         :backgroundColor "blue"
-                                         :coef :var
-                                         :C []}
-                                        {:height 210
-                                         :backgroundColor "green"
-                                         :coef :var
-                                         :C []}]}
-                                   {:type :C
-                                    :display "flex"
-                                    :flexDirection "column"
-                                    :coef :var
-                                    :C [{:type :R
-                                         :display "flex"
-                                         :flexDirection "row"
-                                         :coef :const
-                                         :C [{:width 200
-                                              :type :C
-                                              :coef :var
-                                              :C [{:height 200
-                                                   :backgroundColor "orange"
-                                                   :coef :var
-                                                   :C []}
-                                                  {:height 200
-                                                   :backgroundColor "pink"
-                                                   :coef :var
-                                                   :C []}]}
-                                             {:width 400
-                                              :type :C
-                                              :display "flex"
-                                              :flexDirection "column"
-                                              :coef :var
-                                              :C [{:height 150
-                                                   :backgroundColor "red"
-                                                   :coef :var
-                                                   :C []}
-                                                  {:height 250
-                                                   :backgroundColor "grey"
-                                                   :coef :var
-                                                   :C []}]}]}
-                                        {:type :R
-                                         :display "flex"
-                                         :flexDirection "row"
-                                         :coef :const
-                                         :C [{:width 350
-                                              :type :C
-                                              :display "flex"
-                                              :flexDirection "column"
-                                              :coef :var
-                                              :C [{:height 200
-                                                   :backgroundColor "orange"
-                                                   :coef :var
-                                                   :C []}
-                                                  {:height 200
-                                                   :backgroundColor "pink"
-                                                   :coef :var
-                                                   :C []}]}
-                                             {:width 250
-                                              :type :C
-                                              :display "flex"
-                                              :flexDirection "column"
-                                              :coef :var
-                                              :C [{:height 150
-                                                   :backgroundColor "red"
-                                                   :coef :var
-                                                   :C []}
-                                                  {:height 250
-                                                   :backgroundColor "grey"
-                                                   :coef :var
-                                                   :C []}]}]}]}]}}))
-
-(defn layout-partition [n x]
-  {:pre (> n 1)}
-  (into [] (map (fn [_] {x 1 :C []}) (range n))))
-
-(defn row-partition [n]
-  {:pre (> n 1)}
-  (layout-partition n :width))
+    (:require [om.next :as om]))
 
 
-(defn components []
-  (-> state
-      (om/root-cursor)))
-
-(defn root-children []
-  (-> state
-      (om/root-cursor)
-      :components))
+(def state (atom   {:partition :column
+                    :type :layout
+                    :width -800
+                    :height -800
+                    :display "flex"
+                    :flexDirection "row"
+                    :coef :const
+                    :children [{:width 300
+                                :type :layout
+                                :partition :row
+                                :display "flex"
+                                :flexDirection "column"
+                                :coef :const
+                                :children [{:height 190
+                                            :type :layout
+                                            :backgroundColor "blue"
+                                            :coef :const
+                                            :children [{:type :resizable}]}
+                                           {:height 210
+                                            :type :layout
+                                            :backgroundColor "green"
+                                            :coef :var
+                                            :children []}]}
+                               {:partition :row
+                                :display "flex"
+                                :type :layout
+                                :flexDirection "column"
+                                :coef :var
+                                :children [{:partition :column
+                                            :type :layout
+                                            :display "flex"
+                                            :flexDirection "row"
+                                            :coef :const
+                                            :children [{:width 200
+                                                        :type :layout
+                                                        :partition :row
+                                                        :coef :var
+                                                        :children [{:height 200
+                                                                    :type :layout
+                                                                    :backgroundColor "orange"
+                                                                    :coef :var
+                                                                    :children []}
+                                                                   {:height 200
+                                                                    :type :layout
+                                                                    :backgroundColor "pink"
+                                                                    :coef :var
+                                                                    :children []}]}
+                                                       {:width 400
+                                                        :partition :row
+                                                        :type :layout
+                                                        :display "flex"
+                                                        :flexDirection "column"
+                                                        :coef :var
+                                                        :children [{:height 150
+                                                                    :type :layout
+                                                                    :backgroundColor "red"
+                                                                    :coef :var
+                                                                    :children []}
+                                                                   {:height 250
+                                                                    :type :layout
+                                                                    :backgroundColor "grey"
+                                                                    :coef :var
+                                                                    :children []}]}]}
+                                           {:partition :column
+                                            :display "flex"
+                                            :type :layout
+                                            :flexDirection "row"
+                                            :coef :const
+                                            :children [{:width 350
+                                                        :type :layout
+                                                        :partition :row
+                                                        :display "flex"
+                                                        :flexDirection "column"
+                                                        :coef :var
+                                                        :children [{:height 200
+                                                                    :type :layout
+                                                                    :backgroundColor "orange"
+                                                                    :coef :var
+                                                                    :children []}
+                                                                   {:height 200
+                                                                    :type :layout
+                                                                    :backgroundColor "pink"
+                                                                    :coef :var
+                                                                    :children []}]}
+                                                       {:width 250
+                                                        :type :layout
+                                                        :partition :row
+                                                        :display "flex"
+                                                        :flexDirection "column"
+                                                        :coef :var
+                                                        :children [{:height 150
+                                                                    :type :layout
+                                                                    :backgroundColor "red"
+                                                                    :coef :var
+                                                                    :children []}
+                                                                   {:height 250
+                                                                    :type :layout
+                                                                    :backgroundColor "grey"
+                                                                    :coef :var
+                                                                    :children []}]}]}]}]}))

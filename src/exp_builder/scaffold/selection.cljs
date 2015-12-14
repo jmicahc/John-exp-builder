@@ -1,6 +1,6 @@
 (ns exp-builder.scaffold.selection
-  (:require [exp-builder.resize :as resize]
-            [nom.ui :as ui]))
+  (:require #_[exp-builder.resize :as resize]
+            #_[nom.ui :as ui]))
 
 #_(ui/defcomponent draggable [state component])
 

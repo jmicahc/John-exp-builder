@@ -1,21 +1,17 @@
-(ns exp-builder.scaffold.resizer
-  (:require [nom.ui :as ui
-             exp-builder.resize :as resize
-             om.core :as om]))
+(ns exp-builder.scaffold.resizer)
 
-
-(ui/defcomponent resize-top [state component {:keys [width]}]
+#_(ui/defcomponent resize-top [state component {:keys [width]}]
   (let [margin-top  -10
         margin-left (/ width 2)
         height      20
         width       (/ width 3)]))
 
-(ui/defcomponent resize-bottom [state component {:keys [width height]}])
+#_(ui/defcomponent resize-bottom [state component {:keys [width height]}])
 
-(ui/defcomponent resize-left [state component {:keys [width height]}])
+#_(ui/defcomponent resize-left [state component {:keys [width height]}])
 
-(ui/defcomponent resize-right [state component {:keys [width height]}]
+#_(ui/defcomponent resize-right [state component {:keys [width height]}]
   (let []))
 
-(ui/defcomponent resizeable [state component {:keys [width height]}])
+#_(ui/defcomponent resizeable [state component {:keys [width height]}])
 
