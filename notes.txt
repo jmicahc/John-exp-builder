@@ -48,3 +48,15 @@ Reworking cummulative Subvects function
    -D1: list of parent-child lists
    -D2: list of two lists where first is parent path and second child path
    -D3: List of paths.
+-f: Vector --> Vector X Vector X vector
+ ==> reduction or partitioning
+-Partitioning solution:
+  partition -> 
+
+
+Next Up
+-We want semantics Root to be equivalent to inner in width and position algorithms. 
+ -Done and working!
+
+-Selections.
+
