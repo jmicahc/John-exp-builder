@@ -2,42 +2,38 @@
   (:require [om.next :as om :refer-macros [defui]]
             [om.dom :as dom]
             [goog.dom :as gdom]
-            [sablono.core :as html :refer-macros [html]]
+            [sablono.core :refer-macros [html]]
             [exp-builder.style :as style]
-            [cljs.core.match :refer-macros [match]]
+            [exp-builder.selection :as selection]
             [exp-builder.data :as data]))
 
 (declare layout-component)
 (declare resizable-component)
 (declare dispatch)
 
-(defui Layout
+(defui Layout  
   static om/IQuery
   (query [this]
-         [:children :width :height :flexDirection :display :backgroundColor :coef])
+         [:children :width :height :flexDirection :display :backgroundColor])
+  
   Object
   (render [this]
-          (let [{:keys [children width height flexDirection backgroundColor display]} (om/props this)]
-            (html [:div {:style {:max-width width :min-width width :display display
-                                 :min-height height :max-height height :flexDirection flexDirection
-                                 :backgroundColor backgroundColor}}
-                   (if (empty? children) "hello"  (map dispatch children))]))))
+          (let [{:keys [width height flexDirection display backgroundColor]} (om/props this)]
+            (html [:div {:style {:width width :height height :flexDirection flexDirection
+                                 :display display :backgroundColor backgroundColor}}
+                   (om/children this)]))))
 
-(defui Resizable
+(defui Selection
+  static om/Ident
+  (ident [this {:key [type]}]
+         [:component/type type])
+
+  static om/IQuery
+  (query [this] [:width :height :left :top :backgroundColor :position])
+  
   Object
   (render [this]
-          (identity
-           (html [:div {:style {:backgroundColor "red" :width "100px"
-                                :height "100px" :margin "30px 30px"}}
-                  "resizeable"]))))
-
+          (html [:div {:style (om/props this)}])))
 
 (def layout-component (om/factory Layout))
-(def resizable-component (om/factory Resizable))
-
-
-(defn dispatch [component]
-  (match (:type component)
-         :layout (layout-component component)
-         :resizable (resizable-component component)
-         :else nil))
+(def selection-component (om/factory Selection))

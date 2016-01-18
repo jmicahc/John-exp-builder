@@ -1,0 +1,50 @@
+Debugging layout **RESOLVED**
+Problem: Seemingly random Subtree rendered to DOM, but not displayed
+Features:
+-an equivalent subtree does display.
+  -width: 433.333px; display: flex; (not wokring)
+    -height: 107.438px; background-color: red;
+    -height: 179.062px; background-color: grey;
+  -width: 270.833px; flex-direction: column; display: flex; (works)
+    -height: 107.438px; background-color: red;
+    -height: 179.062px; background-color: grey;
+Solution: subtree was missing FlexDirection attribute
+
+
+Problem: abs-position function broken.
+Prereqs: Test Node has path is 
+         p1 = [:children 1 :children 0 :children 0 :children 0]. 
+         Corresponding div and width known.
+Featrues:
+  -Index out of bounds with p1. :children-path [:children]
+                                :child-path [:children 1]
+     -paths exist in app state
+     -f: prev-siblins is throwing index-out-of-bounds
+     -identified problem: function depended on old data representation.
+     -prev-siblings now works.
+  -fix problem with root-node? function: wrong assumption of data rep.
+  -Returned width is -650
+  - -650 = root-width + 300.
+    ==> Root node isn't being ignored
+  -Removing final summation.
+  -summation terms: {:num -950 ...} {:num 300}
+  -applying map on cddr not working. Nasty fix anyway. Oh, Duhh....
+  -Just going to filter root in transduction... Very messy.
+  -Root is always the first elem, so let's sum rest for now.
+  -Works but function is a freak of nature.
+
+  -backing up. Still a mess. Can't really understand it.
+  -Nil values are being flowed through when node is not orthogonal 
+   and causing a mess. Attempting to concat them away.
+  -Working much better, but still lots of complexity to due with
+   uniqueness of application root.
+
+Reworking cummulative Subvects function
+-Input: path
+-Output: list of lists where each inner list is a parent
+         and child path. The returned list contains all
+         parent-child subpaths of given paths.
+-3-Dimensional
+   -D1: list of parent-child lists
+   -D2: list of two lists where first is parent path and second child path
+   -D3: List of paths.
