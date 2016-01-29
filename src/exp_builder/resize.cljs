@@ -1,103 +1,149 @@
 (ns ^:figh:weel-always exp-builder.resize
   (:require [om.next :as om]
-            [exp-builder.data :as data]
-            [cljs.core.match :refer-macros [match]]
-            [com.rpl.specter :as sp :refer [compiled-select]]))
+            [exp-builder.data :as data]))
 
+
+(defn window-size []
+  {:width (.-innerWidth js/window)
+   :height (.-innerHeight js/window)})
 
 ;; Global Resizing.
 (defn cartesian-product [node]
-    "f: List X List X List --> List X List
+  "f: List X List X List --> List X List
      Computes cartesian cross product of list of lists of lists of elements.
      (((a b) (c d)) ((e f) (g h))) ==> ((a b e f) (a b g h) (c d e f) (c d g h))"
-    (reduce (fn [left right]
-              (mapcat (fn [lhs] (map #(concat lhs %) right)) left))
-            (first node)
-            (next node)))
-
-(defn orthogonal? [partition axis]
-  "Returns true if parent node is a partition of children
-   that is orthogonal to axis. Otherwise returns false."
-  (match [axis partition]
-         [:height :row] true
-         [:width  :row] false
-         [:height :column] false
-         [:width  :column] true
-         :else false))
-
-(defn tree->equations [{:keys [type coef children partition] :as node} axis path]
-  (let [path-gen (sequence (map #(conj path :children %)) (range))
-        recurse  (map #(tree->equations %1 axis %2) children path-gen)
-        equation {:path path coef true :num (axis node)}]
-    (cond
-      (axis node) (list (list equation))
-      (orthogonal? partition axis) (cartesian-product recurse)
-      :else (mapcat identity recurse))))
-
-(defn solve-equations [equations window-size]
-  (letfn [(solve [equation]
-            (let [constants-xf (comp (filter :const) (map :num))
-                  variables-xf (comp (filter :var) (map :num))
-                  rhs (+ (- (transduce constants-xf + 0 equation)) window-size)]
-              (/ rhs (transduce variables-xf + 0 equation))))
-          (solve-equation [equation]
-            (let [solution (solve equation)]
-              (sequence (comp (filter :var)
-                              (map (fn [term] (update term :num (partial * solution)))))
-                        equation)))]
-    (map solve-equation equations)))
-
-(defn equation->tree [eqs app-tree axis]
-  (if-let [equation (first eqs)]
-    (recur (next eqs)
-           (assoc-in app-tree (conj (:path equation) axis) (:num equation))
-           axis)
-    app-tree))
-
-(defn equations->tree [all-equations app-tree axis]
-  (if (empty? all-equations)
-    app-tree
-    (recur (next all-equations)
-           (equation->tree (first all-equations) app-tree axis)
-           axis)))
+  (reduce (fn [left right]
+            (mapcat (fn [lhs] (map #(concat lhs %) right)) left))
+          (first node)
+          (next node)))
 
 
-;; Top / Left positions.
-(defn prev-siblings [children-path child-path]
-  (let [children (get-in @data/state children-path)]
-    (subvec children (last child-path))))
+(defn tree-recurse
+  ([node outer] (tree-recurse node outer []))
+  ([{:keys [children] :as form} outer path]
+   (letfn [(inner [form index]
+             (let [new-path (conj path :children index)
+                   new-form (assoc form :path new-path)
+                   x (outer new-form)]
+               (if (not (fn? x))
+                 x
+                 (tree-recurse new-form outer new-path))))]
+     (if (sequential? children)
+       (let [x (outer form)]
+        (if (fn? x)
+          (x (mapv inner children (range)))
+          x))
+       (outer form)))))
 
 
-(defn all-subvecs [coll]
-  (reduce (fn [acc index]
-            (let [parent-path (or (last (last acc)) [])
-                  children-path (conj parent-path :children)
-                  child-path (conj children-path index)]
-              (conj acc (vector parent-path children-path child-path))))
-          []
-          (take-nth 2 (next coll))))
-
-(defn abs-position [path axis]
-  "Computes left/top position of node, depending on axis."
-  (->> (mapcat (fn [[parent-path children-path child-path]]
-                 (let [parent (get-in @data/state parent-path)
-                       new-node (assoc parent :children (prev-siblings children-path child-path))]
-                   (when (orthogonal? (:partition new-node) axis)
-                     (first (tree->equations new-node axis [])))))
-               (all-subvecs path))
-       (map :num)
-       (reduce + 0)))
+(defn solve [equation]
+  (let [axis     (:axis (first equation))
+        win-size (axis (window-size))
+        constant (- win-size
+                    (transduce (comp
+                                (filter :const)
+                                (map :num))
+                               + 0 equation))
+        coef     (apply + (map :num (filter :var equation)))]
+    (/ constant coef)))
 
 
-;; Mutate
+(defn tree->width-equations [{:keys [width partition coef path]}]
+  (if width
+    (list (list {:num width
+                 coef true
+                 :axis :width
+                 :path (conj path :width)}))
+    (if (= partition :column)
+      cartesian-product
+      (partial apply concat))));
+
+
+(defn tree->height-equations [{:keys [height partition coef path]}]
+  (if height
+    (list (list {:num height
+                 coef true
+                 :axis :height
+                 :path (conj path :height)}))
+    (if (= partition :row)
+      cartesian-product
+      (partial apply concat))))
+
+
+(defn equation->tree
+  [[{:keys [path num] :as eq} & eqs] tree rslt]
+  (if eq
+    (recur eqs
+           (assoc-in tree path
+                     (* num rslt))
+           rslt)
+    tree))
+
+
+(defn equations->tree
+  [[eq & eqs] tree]
+  (if eq
+    (recur eqs
+           (equation->tree eq tree (solve eq)))
+    tree))
+
+
+(defn tree->width [{:keys [partition width height] :as node}]
+  (if height 0
+      (if width width
+        (if (= partition :row)
+          (fn [c] (+ (first c)))
+          (partial apply +)))))
+
+
+(defn tree->height [{:keys [partition width height]}]
+  (if width 0
+      (if height height
+          (if (= partition :column)
+            (fn [c] (+ (first c)))
+            (partial apply +)))))
+
+
+(defn subvec? [[_ c1 & p1] [_ c2 & p2]]
+  "retruns true if path p1 is a proper subvec of p2."
+  (if c1
+    (if (= c1 c2)
+      (recur p1 p2)
+      false)
+    (if c2 true false)))
+
+
+(defn tree->left [path2 {:keys [path partition children]}]
+  (if (= partition :row)
+    (partial apply +)
+    (if (subvec? path path2)
+      (fn [c]
+        (let [n (nth path2 (inc (count path)))]
+          (apply + (tree-recurse
+                    {:children (subvec children 0 n)}
+                    tree->width)
+                 c)))
+      0)))
+
+
+(defn tree->top [path2 {:keys [path partition children]}]
+  (if (= partition :column)
+    (partial apply +)
+    (if (subvec? path path2)
+      (fn [c]
+        (let [n (nth path2 (inc (count path)))]
+          (apply + (tree-recurse
+                    {:children (subvec children 0 n)}
+                    tree->height)
+                 c)))
+      0)))
+
 
 (defn update-layout! [tree]
-  (let [[width height] [(.-innerWidth js/window) (.-innerHeight js/window)]
-        update-dim (fn [axis tree]
-                     (-> tree
-                         (tree->equations axis [])
-                         (solve-equations (if (= axis :width) width height))
-                         (equations->tree tree axis)))]
-    (->> tree
-         (update-dim :height)
-         (update-dim :width))))
+  (let [x
+        (->
+         (tree-recurse @data/state tree->width-equations)
+         (equations->tree tree))]
+    (->
+     (tree-recurse x tree->height-equations)
+     (equations->tree x))))

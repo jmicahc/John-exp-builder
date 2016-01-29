@@ -18,7 +18,8 @@
   
   Object
   (render [this]
-          (let [{:keys [width height flexDirection display backgroundColor]} (om/props this)]
+          (let [{:keys [width height flexDirection display backgroundColor]}
+                (om/props this)]
             (html [:div {:style {:width width :height height :flexDirection flexDirection
                                  :display display :backgroundColor backgroundColor}}
                    (om/children this)]))))

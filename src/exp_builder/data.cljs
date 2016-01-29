@@ -6,6 +6,7 @@
             {:partition :column
              :type :root
              :display "flex"
+             :path []
              :flexDirection "row"
              :coef :const
              :children

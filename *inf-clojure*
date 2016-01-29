@@ -1,0 +1,3053 @@
+WARNING: You're currently running as root; probably by accident.
+Press control-C to abort or Enter to continue as root.
+Set LEIN_ROOT to disable this warning.
+
+Figwheel: Starting server at http://localhost:3450
+Figwheel: Watching build - dev
+Compiling "resources/public/js/compiled/exp_builder.js" from ["src"]...
+Successfully compiled "resources/public/js/compiled/exp_builder.js" in 3.411 seconds.
+Figwheel: Starting CSS Watcher for paths  ["resources/public/css"]
+Launching ClojureScript REPL for build: dev
+Figwheel Controls:
+          (stop-autobuild)                ;; stops Figwheel autobuilder
+          (start-autobuild [id ...])      ;; starts autobuilder focused on optional ids
+          (switch-to-build id ...)        ;; switches autobuilder to different build
+          (reset-autobuild)               ;; stops, cleans, and starts autobuilder
+          (reload-config)                 ;; reloads build config and resets autobuild
+          (build-once [id ...])           ;; builds source one time
+          (clean-builds [id ..])          ;; deletes compiled cljs target files
+          (print-config [id ...])         ;; prints out build configurations
+          (fig-status)                    ;; displays current state of system
+  Switch REPL build focus:
+          :cljs/quit                      ;; allows you to switch REPL to another build
+    Docs: (doc function-name-here)
+    Exit: Control+C or :cljs/quit
+ Results: Stored in vars *1, *2, *3, *e holds last exception object
+Prompt will show when Figwheel connects to your application
+To quit, type: :cljs/quit
+cljs.user=> 
+WARNING: Use of undeclared Var cljs.user/tree-recurse at line 3 <cljs repl>
+WARNING: No such namespace: data, could not locate data.cljs, data.cljc, or Closure namespace "" at line 3 <cljs repl>
+WARNING: Use of undeclared Var data/state at line 3 <cljs repl>
+WARNING: Use of undeclared Var cljs.user/tree->width at line 3 <cljs repl>
+#'cljs.user/left-pos
+cljs.user=> 
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/left-pos
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+0
+exp-builder.resize=> 
+#'exp-builder.resize/tree->height
+exp-builder.resize=> 
+2053
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+2053
+exp-builder.resize=> 
+1731
+exp-builder.resize=> contains?]
+#object[cljs$core$contains_QMARK_ "function cljs$core$contains_QMARK_(coll,v){
+if((cljs.core.get.cljs$core$IFn$_invoke$arity$3(coll,v,cljs.core.lookup_sentinel) === cljs.core.lookup_sentinel)){
+return false;
+} else {
+return true;
+}
+}"]
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/subsec? at line 2 <cljs repl>
+WARNING: Use of undeclared Var exp-builder.resize/recurse at line 6 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/subvec?
+exp-builder.resize=> 
+#'exp-builder.resize/subvec?
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/recurse at line 6 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/tree->recurse at line 6 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#object[Error Error: No item 8 in vector of length 8]
+Error: No item 8 in vector of length 8
+    at Object.cljs$core$vector_index_out_of_bounds [as vector_index_out_of_bounds] (http://localhost:3450/js/compiled/out/cljs/core.js:17946:8)
+    at Object.cljs$core$array_for [as array_for] (http://localhost:3450/js/compiled/out/cljs/core.js:17988:18)
+    at cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:18211:19)
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:5651:13)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5630:22)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:23)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Error Error: No item 8 in vector of length 8]
+Error: No item 8 in vector of length 8
+    at Object.cljs$core$vector_index_out_of_bounds [as vector_index_out_of_bounds] (http://localhost:3450/js/compiled/out/cljs/core.js:17946:8)
+    at Object.cljs$core$array_for [as array_for] (http://localhost:3450/js/compiled/out/cljs/core.js:17988:18)
+    at cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:18211:19)
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:5651:13)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5630:22)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:23)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Error Error: No item 8 in vector of length 8]
+Error: No item 8 in vector of length 8
+    at Object.cljs$core$vector_index_out_of_bounds [as vector_index_out_of_bounds] (http://localhost:3450/js/compiled/out/cljs/core.js:17946:8)
+    at Object.cljs$core$array_for [as array_for] (http://localhost:3450/js/compiled/out/cljs/core.js:17988:18)
+    at cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:18211:19)
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:5651:13)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5630:22)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:23)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Error Error: No item 8 in vector of length 8]
+Error: No item 8 in vector of length 8
+    at Object.cljs$core$vector_index_out_of_bounds [as vector_index_out_of_bounds] (http://localhost:3450/js/compiled/out/cljs/core.js:17946:8)
+    at Object.cljs$core$array_for [as array_for] (http://localhost:3450/js/compiled/out/cljs/core.js:17988:18)
+    at cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:18211:19)
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:5651:13)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5630:22)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:23)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+n: 1 
+
+[:children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+n: 1 
+
+[:children 1] [:children 1 :children 1 :children 1 :children 1]
+n: 1 
+
+[] [:children 1 :children 1 :children 1 :children 1]
+n: 1 
+
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+[:children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+[:children 1] [:children 1 :children 1 :children 1 :children 1]
+[] [:children 1 :children 1 :children 1 :children 1]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+[:children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+[:children 1] [:children 1 :children 1 :children 1 :children 1]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+[] [:children 1 :children 1 :children 1 :children 1]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+nil
+exp-builder.resize=> (apply + [])
+0
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[:children 1 :children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+[:children 1 :children 1] [:children 1 :children 1 :children 1 :children 1]
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+[:children 1] [:children 1 :children 1 :children 1 :children 1]
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+[] [:children 1 :children 1 :children 1 :children 1]
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+nil
+exp-builder.resize=> 
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+0
+(#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"])
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+0
+0
+0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#object[cljs$core$partial "function cljs$core$partial(var_args){
+var args7537 = [];
+var len__5318__auto___7545 = arguments.length;
+var i__5319__auto___7546 = (0);
+while(true){
+if((i__5319__auto___7546 < len__5318__auto___7545)){
+args7537.push((arguments[i__5319__auto___7546]));
+
+var G__7547 = (i__5319__auto___7546 + (1));
+i__5319__auto___7546 = G__7547;
+continue;
+} else {
+}
+break;
+}
+
+var G__7544 = args7537.length;
+switch (G__7544) {
+case 1:
+return cljs.core.partial.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
+
+break;
+case 2:
+return cljs.core.partial.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
+
+break;
+case 3:
+return cljs.core.partial.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
+
+break;
+case 4:
+return cljs.core.partial.cljs$core$IFn$_invoke$arity$4((arguments[(0)]),(arguments[(1)]),(arguments[(2)]),(arguments[(3)]));
+
+break;
+default:
+var argseq__5337__auto__ = (new cljs.core.IndexedSeq(args7537.slice((4)),(0)));
+return cljs.core.partial.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),(arguments[(2)]),(arguments[(3)]),argseq__5337__auto__);
+
+}
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+hello
+0
+hello
+0
+hello
+0
+hello
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+hello
+0
+hello
+0
+hello
+0
+hello
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+hello
+hello
+hello
+hello
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+hello
+0
+hello
+0
+hello
+0
+hello
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+0
+0
+0
+0
+0
+0
+0
+0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> (subvec 0 0)
+#object[Error Error: No protocol method ICounted.-count defined for type number: 0]
+	 cljs.core/missing-protocol (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:261:4)
+	 cljs.core/-count (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:457:1)
+	 cljs.core/count (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:1609:14)
+	 Function.cljs.core.subvec.cljs$core$IFn$_invoke$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:5164:23)
+	 cljs$core$subvec (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:5157:1)
+exp-builder.resize=> (subvec? 0 0)
+#object[Error Error: nth not supported on this type function Number() { [native code] }]
+Error: nth not supported on this type function Number() { [native code] }
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:5714:8)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5634:22)
+    at exp_builder$resize$subvec_QMARK_ (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:5:23)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:1:122)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:9:3)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:14:4)
+    at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:8)
+exp-builder.resize=> (subvec? [] [])
+false
+exp-builder.resize=> (subvec? [] [1])
+false
+exp-builder.resize=> (subvec? [] [1 2])
+true
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+4
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+8
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/c at line 1 <cljs repl>
+nil
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+{:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+{:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+{:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+{:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]}
+ {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+{:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:10:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+nil
+nil
+nil
+nil
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+{:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+{:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+{:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:childre
+n 1 :children 0]}
+{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+{:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+{:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+0
+nil
+0
+nil
+0
+nil
+0
+nil
+nil
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+WARNING: Use of undeclared Var exp-builder.resize/t at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+nil
+0
+nil
+0
+nil
+0
+nil
+nil
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0
+0
+0
+0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+0
+0
+0
+0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+0
+0
+0
+0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+node  0
+node  0
+node  0
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> (subvec? 0 [1 2])
+#object[Error Error: nth not supported on this type function Number() { [native code] }]
+Error: nth not supported on this type function Number() { [native code] }
+    at Function.cljs.core.nth.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:5714:8)
+    at cljs$core$nth (http://localhost:3450/js/compiled/out/cljs/core.js:5634:22)
+    at exp_builder$resize$subvec_QMARK_ (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:5:23)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:1:122)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:9:3)
+    at eval (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:14:4)
+    at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:8)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+[]
+[:children 0]
+[:children 1]
+[:children 1]
+[:children 1 :children 0]
+[:children 1 :children 1]
+[:children 1 :children 1]
+[:children 1 :children 1 :children 0]
+[:children 1 :children 1 :children 1]
+[:children 1 :children 1 :children 1]
+[:children 1 :children 1 :children 1 :children 0]
+[:children 1 :children 1 :children 1 :children 1]
+node  0
+node  0
+node  0
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+clojure.lang.ExceptionInfo: Too many arguments to if at line 3 <cljs repl> {:file "<cljs repl>", :line 3, :column 3, :tag :cljs/analysis-error}
+	at clojure.core$ex_info.invoke(core.clj:4593)
+	at cljs.analyzer$error.invoke(analyzer.cljc:568)
+	at cljs.analyzer$error.invoke(analyzer.cljc:566)
+	at cljs.analyzer$eval1283$fn__1285.invoke(analyzer.cljc:963)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_STAR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	
+at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2583)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2582)
+	at cljs.analyzer$eval1441$fn__1443.invoke(analyzer.cljc:1411)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_STAR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2583)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2582)
+	at cljs.analyzer$analyze_let_body_STAR_.invoke(analyzer.cljc:1478)
+	at cljs.analyzer$analyze_let_body.invoke(analyzer.cljc:1483)
+	at cljs.analyzer$analyze_let.invoke(analyzer.cljc:1499)
+	at cljs.analyzer$eval1460$fn__1461.invoke(analyzer.cljc:1511)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_STAR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2417)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2583)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2582)
+	at cljs.analyzer$eval1441$fn__1443.invoke(analyzer.cljc:1401)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_STAR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2583)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2582)
+	at cljs.analyzer$analyze_fn_method_body.invoke(analyzer.cljc:1220)
+	at cljs.analyzer$analyze_fn_method.invoke(analyzer.cljc:1238)
+	at cljs.analyzer$eval1402$fn__1404$fn__1407.invoke(analyzer.cljc:1302)
+	at clojure.core$map$fn__4553.invoke(core.clj:2624)
+	at clojure.lang.LazySeq.sval(LazySeq.java:40)
+	at clojure.lang.LazySeq.seq(LazySeq.java:49)
+	at clojure.lang.RT.seq(RT.java:507)
+	at clojure.core$seq__4128.invoke(core.clj:137)
+	at clojure.core$map$fn__4553.invoke(core.clj:2616)
+	at clojure.lang.LazySeq.sval(LazySeq.java:40)
+	at clojure.lang.LazySeq.seq(LazySeq.java:49)
+	at clojure.lang.RT.seq(RT.java:507)
+	at clojure.core$seq__4128.invoke(core.clj:137)
+	at clojure.core$apply.invoke(core.clj:630)
+	at cljs.analyzer$eval1402$fn__1404.invoke(analyzer.cljc:1303)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_STAR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2417)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2583)
+	at cljs.analyzer$eval1355$fn__1356$fn__1359.invoke(analyzer.cljc:1113)
+	at cljs.analyzer$eval1355$fn__1356.invoke(analyzer.cljc:1112)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:251)
+	at cljs.analyzer$analyze_seq_ST
+AR_.invoke(analyzer.cljc:2390)
+	at cljs.analyzer$analyze_seq_STAR__wrap.invoke(analyzer.cljc:2395)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2416)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.analyzer$analyze_seq.invoke(analyzer.cljc:2417)
+	at cljs.analyzer$analyze_form.invoke(analyzer.cljc:2525)
+	at cljs.analyzer$analyze_STAR_.invoke(analyzer.cljc:2572)
+	at cljs.analyzer$analyze.invoke(analyzer.cljc:2588)
+	at cljs.repl$evaluate_form.invoke(repl.cljc:440)
+	at cljs.repl$eval_cljs.invoke(repl.cljc:560)
+	at cljs.repl$repl_STAR_$read_eval_print__4843.invoke(repl.cljc:857)
+	at cljs.repl$repl_STAR_$fn__4849$fn__4858.invoke(repl.cljc:896)
+	at cljs.repl$repl_STAR_$fn__4849.invoke(repl.cljc:895)
+	at cljs.compiler$with_core_cljs.invoke(compiler.cljc:1149)
+	at cljs.repl$repl_STAR_.invoke(repl.cljc:859)
+	at figwheel_sidecar.repl$eval15167$fn__15168.invoke(repl.clj:148)
+	at clojure.lang.MultiFn.invoke(MultiFn.java:238)
+	at figwheel_sidecar.repl$repl.invoke(repl.clj:165)
+	at figwheel_sidecar.system$start_figwheel_repl.invoke(system.clj:471)
+	at figwheel_sidecar.system$figwheel_cljs_repl_STAR_.invoke(system.clj:515)
+	at figwheel_sidecar.system$build_switching_cljs_repl_STAR_.invoke(system.clj:521)
+	at figwheel_sidecar.system$cljs_repl_STAR_.invoke(system.clj:541)
+	at figwheel_sidecar.system$cljs_repl.invoke(system.clj:565)
+	at figwheel_sidecar.system$cljs_repl.invoke(system.clj:561)
+	at figwheel_sidecar.repl_api$start_figwheel_from_lein.invoke(repl_api.clj:137)
+	at user$eval16522.invoke(form-init125034868471991398.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6772)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7165)
+	at clojure.main$load_script.invoke(main.clj:275)
+	at clojure.main$init_opt.invoke(main.clj:280)
+	at clojure.main$initialize.invoke(main.clj:308)
+	at clojure.main$null_opt.invoke(main.clj:343)
+	at clojure.main$main.doInvoke(main.clj:421)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+node  {:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :c
+oef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backg
+roundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+subvec [:children 1 :children 1 :children 1]
+node  0
+subvec [:children 1 :children 1]
+node  0
+subvec [:children 1]
+node  0
+subvec []
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> (subvec? [:children 1] [:children 1 :children 1 :children 1 :children 1])
+true
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+subvec [:children 1 :children 1 :children 1]
+[0 0]
+node  0
+subvec [:children 1 :children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec [:children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec []
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+subvec [:children 1 :children 1 :children 1]
+[0 0]
+node  0
+subvec [:children 1 :children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec [:children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec []
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+subvec [:children 1 :children 1 :children 1]
+[[0] [0]]
+node  [0]
+subvec [:children 1 :children 1]
+[[0] #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  [0]
+subvec [:children 1]
+[[0] #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  [0]
+subvec []
+[[0] #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  [0]
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+node  {:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :c
+oef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backg
+roundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+subvec [:children 1 :children 1 :children 1]
+[0 0]
+node  0
+subvec [:children 1 :children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec [:children 1]
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+subvec []
+[0 #object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]]
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  0
+node  0
+node  0
+node  0
+#object[Function "function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+}"]
+exp-builder.resize=> (subvec [] [:children 1])
+#object[Error Error: No item [:children 1] in vector of length 0]
+	 cljs.core/vector-index-out-of-bounds (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4662:10)
+	 cljs.core/array-for (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4686:6)
+	 cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4823:12)
+	 Function.cljs.core._nth.cljs$core$IFn$_invoke$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:481:10)
+	 cljs$core$subvec_seq (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:5082:33)
+	 cljs.core.Subvec.cljs$core$ISeqable$_seq$arity$1 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:5085:8)
+	 cljs.core/seq (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:1075:25)
+	 cljs.core/pr-sequential-writer (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:8747:20)
+	 cljs.core.Subvec.cljs$core$IPrintWithWriter$_pr_writer$arity$3 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:9030:35)
+	 cljs$core$pr_writer_impl (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:8812:33)
+exp-builder.resize=> (subvec? [] [:children 1])
+true
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  0
+#object[Error Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable]
+Error: function (x,y,z,var_args){
+var args = var_args;
+switch(arguments.length){
+case 0:
+return G__7549__0.call(this);
+case 1:
+return G__7549__1.call(this,x);
+case 2:
+return G__7549__2.call(this,x,y);
+case 3:
+return G__7549__3.call(this,x,y,z);
+default:
+var G__7553 = null;
+if (arguments.length > 3) {
+var G__7554__i = 0, G__7554__a = new Array(arguments.length -  3);
+while (G__7554__i < G__7554__a.length) {G__7554__a[G__7554__i] = arguments[G__7554__i + 3]; ++G__7554__i;}
+G__7553 = new cljs.core.IndexedSeq(G__7554__a,0);
+}
+return G__7549__4.cljs$core$IFn$_invoke$arity$variadic(x,y,z, G__7553);
+}
+throw(new Error('Invalid arity: ' + arguments.length));
+} is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+#object[Error Error: 1 is not ISeqable]
+Error: 1 is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+1
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+0
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+0
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+5
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+5
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+5
+exp-builder.resize=> 
+node  {:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+5
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+10
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 0]
+2
+path [:children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1 :children 0]
+2
+path [:children 1 :children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1 :children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1 :children 1 :children 0]
+2
+path [:children 1 :children 1 :children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1 :children 1 :children 1]
+#object[Function "function (c){
+return cljs.core.apply.call(null,cljs.core._PLUS_,c);
+}"]
+path [:children 1 :children 1 :children 1 :children 0]
+2
+path [:children 1 :children 1 :children 1 :children 1]
+2
+10
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+10
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+4
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+4
+exp-builder.resize=> (apply + 1 [1])
+2
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/tree->recurse at line 4 <cljs repl>
+WARNING: Use of undeclared Var exp-builder.resize/path->width at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/path->width at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.83333
+33333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1]}
+node  {:partition :column, :type :root, :display flex, :path [], :flexDirection row, :coef :const, :children [{:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]} {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}], :path [:children 0]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], 
+:path [:children 1]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:hei
+ght 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1 :children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1 :children 1]}
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, 
+:type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1]}
+(577 1154)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  {:height 384.9375, :type :layout, :backgroundColor red, :coef :var}
+node  {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :di
+splay flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backg
+roundColor pink, :coef :var}], :path [:children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1]}
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+path []
+path [:children 0]
+path [:children 1]
+path [:children 1]
+path [:children 1 :children 0]
+path [:children 1 :children 1]
+path [:children 1 :children 1]
+path [:children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1]
+path [:children 1 :children 1 :children 1 :children 0]
+path [:children 1 :children 1 :children 1 :children 1]
+node  {:height 384.9375, :type :layout, :backgroundColor red, :coef :var}
+node  {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDi
+rection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :c
+oef :var}], :path [:children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1]}
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+node  {:height 384.9375, :type :layout, :backgroundColor red, :coef :var}
+node  {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1]}
+node  {:width 577, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :const, :children [{:height 975.1750000000001, :type :layout, :backgroundColor blue, :coef :var} {:height 1077.825, :type :layout, :backgroundColor green, :coef :var}]}
+node  {:partition :row, :type :layout, :display flex, :flexDirection column, :coef :var, :children [{:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]} {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layou
+t, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}]}]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 0]}
+node  {:width 384.6666666666667, :partition :row, :type :layout, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor black, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 0 :children 0]}
+node  {:width 769.3333333333334, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 0 :children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:partition :column, :type :layout, :display flex, :flexDirection row, :coef :const, :children [{:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}]} {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}]}], :path [:children 1]}
+node  {:width 673.1666666666666, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 513.25, :type :layout, :backgroundColor orange, :coef :var} {:height 513.25, :type :layout, :backgroundColor pink, :coef :var}], :path [:children 1 :children 0]}
+node  {:width 480.8333333333333, :type :layout, :partition :row, :display flex, :flexDirection column, :coef :var, :children [{:height 384.9375, :type :layout, :backgroundColor red, :coef :var} {:height 641.5625, :type :layout, :backgroundColor grey, :coef :var}], :path [:children 1 :children 1]}
+1731
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->width
+exp-builder.resize=> 
+1731
+exp-builder.resize=> 
+WARNING: Wrong number of args (1) passed to cljs.core/nth at line 4 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+WARNING: Use of undeclared Var exp-builder.resize/n at line 6 <cljs repl>
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#object[Error Error: No item 2 in vector of length 2]
+	 cljs.core/vector-index-out-of-bounds (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4662:10)
+	 cljs.core/array-for (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4686:6)
+	 cljs.core.PersistentVector.cljs$core$IIndexed$_nth$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4823:12)
+	 Function.cljs.core._nth.cljs$core$IFn$_invoke$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:481:10)
+	 cljs$core$subvec_seq (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:5082:33)
+	 cljs.core.LazySeq.sval (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:3010:18)
+	 cljs.core.LazySeq.cljs$core$ISeqable$_seq$arity$1 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:3052:12)
+	 cljs.core/seq (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:1075:25)
+	 cljs.core.map.cljs$core$IFn$_invoke$arity$2 (jar:file:/root/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljs:4207:19)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+hello
+hello
+hello
+hello
+577
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+0
+exp-builder.resize=> 
+0
+exp-builder.resize=> 
+577
+exp-builder.resize=> 
+295.5043250471353
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#object[Error Error: 385.66378330190975 is not ISeqable]
+Error: 385.66378330190975 is not ISeqable
+    at Object.cljs$core$seq [as seq] (http://localhost:3450/js/compiled/out/cljs/core.js:4122:8)
+    at Object.cljs$core$bounded_count [as bounded_count] (http://localhost:3450/js/compiled/out/cljs/core.js:11394:30)
+    at Function.cljs.core.apply.cljs$core$IFn$_invoke$arity$2 (http://localhost:3450/js/compiled/out/cljs/core.js:12151:20)
+    at cljs$core$apply (http://localhost:3450/js/compiled/out/cljs/core.js:12126:24)
+    at cljs.core.pr_str.call.exp_builder.resize.tree__GT_left (eval at figwheel$client$utils$eval_helper (http://localhost:3450/js/compiled/out/figwheel/client/utils.js:126:13), <anonymous>:12:24)
+    at Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/exp_builder/resize.js:75:10)
+    at exp_builder$resize$tree_recurse (http://localhost:3450/js/compiled/out/exp_builder/resize.js:42:40)
+    at exp_builder$resize$inner (http://localhost:3450/js/compiled/out/exp_builder/resize.js:68:40)
+    at http://localhost:3450/js/compiled/out/cljs/core.js:16309:96
+    at cljs.core.map.cljs$core$IFn$_invoke$arity$3 (http://localhost:3450/js/compiled/out/cljs/core.js:16310:3)
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+289.24783747643227
+exp-builder.resize=> 
+289.24783747643227
+exp-builder.resize=> 
+289.24783747643227
+exp-builder.resize=> 
+289.24783747643227
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+1205.199322818468
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+1205.199322818468
+exp-builder.resize=> 
+1794.30288119003
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+1794.30288119003
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+1786.1818927383183
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+428.68365425719634
+exp-builder.resize=> 
+428.68365425719634
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+"428.68365425719634[0 \"857.3673085143928[0 \\\"500.1309299667291[0 \\\\\\\"357.2363785476637[0 0]\\\\\\\"]\\\"]\"]"
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+2143.418271285982
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+2143.418271285982
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+357.2363785476637
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+2143.418271285982
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+357.2363785476637
+500.1309299667291
+857.3673085143928
+428.68365425719634
+2143.418271285982
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+357.2363785476637 1
+500.1309299667291 1
+857.3673085143928 1
+428.68365425719634 1
+2143.418271285982
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+357.2363785476637 1 [:children 1 :children 1 :children 1]
+500.1309299667291 1 [:children 1 :children 1]
+857.3673085143928 1 [:children 1]
+428.68365425719634 1 []
+2143.418271285982
+exp-builder.resize=> (get-in @data/state [:children 1 :children 1 :children 1])
+{:width 357.2363785476637, :type :layout, :partition :row, :display "flex", :flexDirection "column", :coef :var, :children [{:height 314.25, :type :layout, :backgroundColor "red", :coef :var} {:height 523.75, :type :layout, :backgroundColor "grey", :coef :var}]}
+exp-builder.resize=> (get-in @data/state [:children 1 :children 1])
+{:partition :column, :type :layout, :display "flex", :flexDirection "row", :coef :const, :children [{:width 500.1309299667291, :type :layout, :partition :row, :display "flex", :flexDirection "column", :coef :var, :children [{:height 419, :type :layout, :backgroundColor "orange", :coef :var} {:height 419, :type :layout, :backgroundColor "pink", :coef :var}]} {:width 357.2363785476637, :type :layout, :partition :row, :display "flex", :flexDirection "column", :coef :var, :children [{:height 314.25, :type :layout, :backgroundColor "red", :coef :var} {:height 523.75, :type :layout, :backgroundColor "grey", :coef :var}]}]}
+exp-builder.resize=> (tree-recurse (get-in @data/state [:children 1 :children 1] tree->width)defau
+)
+WARNING: Use of undeclared Var exp-builder.resize/defau at line 2 <cljs repl>
+#object[TypeError TypeError: Cannot read property 'call' of undefined]
+	 Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$3 (file:/home/john/clojure/John-exp-builder/src/exp_builder/resize.cljs:31:17)
+	 exp-builder.resize/tree-recurse (file:/home/john/clojure/John-exp-builder/src/exp_builder/resize.cljs:20:1)
+	 Function.exp_builder.resize.tree_recurse.cljs$core$IFn$_invoke$arity$2 (file:/home/john/clojure/John-exp-builder/src/exp_builder/resize.cljs:21:18)
+	 exp_builder$resize$tree_recurse (file:/home/john/clojure/John-exp-builder/src/exp_builder/resize.cljs:20:1)
+exp-builder.resize=> 
+exp-builder.resize=> (tree-recurse (get-in @data/state [:children 1 :children 1]) tree->width)
+857.3673085143928
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0 1 [:children 1 :children 1 :children 1]
+500.1309299667291 1 [:children 1 :children 1]
+857.3673085143928 1 [:children 1]
+428.68365425719634 1 []
+1786.1818927383183
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0 1 [:children 1 :children 1 :children 1]
+500.1309299667291 1 [:children 1 :children 1]
+857.3673085143928 1 [:children 1]
+428.68365425719634 1 []
+1786.1818927383183
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0 1 [:children 1 :children 1 :children 1]
+500.1309299667291 1 [:children 1 :children 1]
+857.3673085143928 1 [:children 1]
+428.68365425719634 1 []
+1786.1818927383183
+exp-builder.resize=> 
+#'exp-builder.resize/tree->left
+exp-builder.resize=> 
+0 1 [:children 1 :children 1 :children 1]
+500.1309299667291 1 [:children 1 :children 1]
+857.3673085143928 1 [:children 1]
+428.68365425719634 1 []
+1786.1818927383183
+exp-builder.resize=> 
