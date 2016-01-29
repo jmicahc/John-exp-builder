@@ -56,7 +56,7 @@
                  :path (conj path :width)}))
     (if (= partition :column)
       cartesian-product
-      (partial apply concat))));
+      (partial apply concat))))
 
 
 (defn tree->height-equations [{:keys [height partition coef path]}]
@@ -104,8 +104,8 @@
             (partial apply +)))))
 
 
-(defn subvec? [[_ c1 & p1] [_ c2 & p2]]
-  "retruns true if path p1 is a proper subvec of p2."
+(defn subpath? [[_ c1 & p1] [_ c2 & p2]]
+  "retruns true if path p1 is a proper sub-path of p2."
   (if c1
     (if (= c1 c2)
       (recur p1 p2)
@@ -116,7 +116,7 @@
 (defn tree->left [path2 {:keys [path partition children]}]
   (if (= partition :row)
     (partial apply +)
-    (if (subvec? path path2)
+    (if (subpath? path path2)
       (fn [c]
         (let [n (nth path2 (inc (count path)))]
           (apply + (tree-recurse
@@ -129,7 +129,7 @@
 (defn tree->top [path2 {:keys [path partition children]}]
   (if (= partition :column)
     (partial apply +)
-    (if (subvec? path path2)
+    (if (subpath? path path2)
       (fn [c]
         (let [n (nth path2 (inc (count path)))]
           (apply + (tree-recurse
@@ -147,3 +147,13 @@
     (->
      (tree-recurse x tree->height-equations)
      (equations->tree x))))
+
+
+(defn filter-rxf [{:keys [height children] :as node}]
+  (if children
+    (if height
+      (partial concat [node])
+      (partial apply concat))
+    (if height
+      [node]
+      nil)))
