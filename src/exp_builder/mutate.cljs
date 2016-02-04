@@ -5,7 +5,15 @@
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn mutate [{:keys [state] :as env} key params]
-  (if (= 'window-resize key)
+  (cond
+    (= 'window-resize key)
     {:value {:keys [:components]}
-     :action #(swap! state (partial resize/update-layout! @state))}
-    {:value :not-found}))
+     :action #(swap! state (fn [state]
+                             (update-in state
+                                        [:root]
+                                        resize/update-layout!)))}
+    (= 'selection-resize key)
+    {:value {:keys [:components]}
+     :action #(print "hello world")}
+    :else {:value :not-found}))
+ 

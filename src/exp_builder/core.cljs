@@ -1,6 +1,7 @@
 (ns ^:figwheel-always exp-builder.core
     (:require [exp-builder.data :as data]
               [exp-builder.mutate :as mutate]
+              [exp-builder.resize :as resize]
               [exp-builder.components :as components]
               [sablono.core :refer-macros [html]]
               [goog.dom :as gdom]
@@ -21,6 +22,16 @@
 
 (declare render-app)
 
+(defn dispatch [{:keys [children type path] :as props}]
+  (if children
+    (case type
+      :layout (partial components/layout-component props)
+      :selection (partial components/layout-select props)
+      (partial components/layout-component props))
+    (components/layout-component props)))
+
+
+
 (defui Root
   static om/Ident
   (ident [this {:keys [type]}]
@@ -28,17 +39,13 @@
 
   static om/IQuery
   (query [this]
-         '[:children :width :height :flexDirection :display :backgroundColor :coef])
+         '[:root])
 
   Object
   (render [this]
-          (html [:div {:style (om/props this)}
-                 (map render-app (:children (om/props this)))])))
-
-(defn render-app [{:keys [type children] :as props}]
-  (case type
-    :layout (components/layout-component props (map render-app children))
-    :selection-root (components/selection-component props)))
+          (let [{:keys [root]} (om/props this)]
+            (html [:div {:id "t"}
+                   (resize/tree-recurse root dispatch)]))))
 
 (om/add-root! reconciler
               Root
@@ -49,6 +56,7 @@
   [reconciler]
   {:pre [(om/reconciler? reconciler)]}
   (get @(:state reconciler) :root))
+
 
 ;; Fix later
 (defn window-resize-handler [event]
