@@ -31,7 +31,6 @@
                      :flexDirection flexDirection
                      :transition-property "all"
                      :transition-duration "0.5s"
-                     :z-index (/ (count path) 2)
                      :display display
                      :backgroundColor backgroundColor
                      :box-shadow "0 2px 15px 0 rgba(0, 0, 0, 0.3)"}}

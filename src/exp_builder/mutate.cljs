@@ -9,9 +9,10 @@
     (= 'window-resize key)
     {:value {:keys [:components]}
      :action #(swap! state (fn [state]
-                             (update-in state
-                                        [:root]
-                                        resize/update-layout!)))}
+                             (update state
+                                     :root
+                                     (partial resize/display-subtree!
+                                              [:children 1]))))}
     (= 'selection-resize key)
     {:value {:keys [:components]}
      :action #(print "hello world")}
