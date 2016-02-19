@@ -12,7 +12,7 @@
                              (update state
                                      :root
                                      (partial resize/display-subtree!
-                                              [:children 1]))))}
+                                              []))))}
     (= 'selection-resize key)
     {:value {:keys [:components]}
      :action #(print "hello world")}

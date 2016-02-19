@@ -60,3 +60,64 @@ Next Up
 
 -Selections.
 
+
+
+;; generating error in clojure source file for unknown reasons.
+#_(comment                                                                                                                                                                 
+                                                                                                                                                                           
+  (rxo functions to render dynamic classes.                                                                                                                                
+                                                                                                                                                                           
+                                                                                                                                                                           
+       these functions return a new outer function to                                                                                                                      
+       be used in the recursion that is a composition                                                                                                                      
+       of the existing one.                                                                                                                                                
+                                                                                                                                                                           
+                                                                                                                                                                           
+       these functions have the form                                                                                                                                       
+                                                                                                                                                                           
+                                                                                                                                                                           
+       note three function types:                                                                                                                                          
+       (fn rxb [children | child] ...) : rx build function                                                                                                                 
+       (fn rxf [node] ...)             : rxf function                                                                                                                      
+       (fn rxo [node] ...)             : rx outer function                                                                                                                 
+                                                                                                                                                                           
+       each of the function above return an instance                                                                                                                       
+       of the previous function. thus rxo functions are                                                                                                                    
+       third-order rxf functions are second order,                                                                                                                         
+       and rxb are first order functions returning                                                                                                                         
+       a react component or vector of react components.                                                                                                                    
+                                                                                                                                                                           
+       (fn rxo [outer]                                                                                                                                                     
+         ((outer node) (rxf node)))                                                                                                                                        
+                                                                                                                                                                           
+       or...                                                                                                                                                               
+                                                                                                                                                                           
+       (fn rxo [outer]                                                                                                                                                     
+         ((rxf ndoe) (outer node)))                                                                                                                                        
+                                                                                                                                                                           
+       rxf is a function of the form:                                                                                                                                      
+                                                                                                                                                                           
+       (fn rxf [node]                                                                                                                                                      
+         (if pred                                                                                                                                                          
+           (fn [c] ...)                                                                                                                                                    
+           ...))                                                                                                                                                           
+                                                                                                                                                                           
+       c is either a react component or a vector of react components.                                                                                                      
+                                                                                                                                                                           
+       notice,                                                                                                                                                             
+       (outer node) returns an rxf function.                                                                                                                               
+                                                                                                                                                                           
+       (rxf node) returns function of same form.                                                                                                                           
+                                                                                                                                                                           
+       ((rxf node) (outer node)) thus returns a function:                                                                                                                  
+                                                                                                                                                                           
+       ((fn [c] ...) (fn [c] ...))                                                                                                                                         
+                                                                                                                                                                           
+       each rxf function makes a decision about                                                                                                                            
+       whether to build a component based on                                                                                                                               
+       the value of *node*.                                                                                                                                                
+                                                                                                                                                                           
+       note: class rxf functions should return a component or                                                                                                              
+       vector of components and any rxf function                                                                                                                           
+       should be defined on a vector of components or single))
+

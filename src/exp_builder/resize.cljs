@@ -1,6 +1,7 @@
-(ns ^:figh:weel-always exp-builder.resize
+(ns ^:figwheel-always exp-builder.resize
   (:require [om.next :as om]
-            [exp-builder.data :as data]))
+            [exp-builder.data :as data]
+            [exp-builder.dispatch :refer [rx]]))
 
 (defn window-size []
   {:width (.-innerWidth js/window)
@@ -16,70 +17,89 @@
           (first node)
           (next node)))
 
-
-(defn tree-recurse
-  ([node outer] (tree-recurse (assoc node :root true) outer []))
-  ([{:keys [children] :as form} outer path]
-   (letfn [(inner [form index]
-             (let [new-path (conj path :children index)
-                   new-form (assoc form :path new-path)
-                   x (outer new-form)]
-               (if (not (fn? x))
-                 x
-                 (tree-recurse new-form outer new-path))))]
-     (if (sequential? children)
-       (let [x (outer form)]
-        (if (fn? x)
-          (x (mapv inner children (range)))
-          x))
-       (outer form)))))
-
-
 ;; Global Tree Resizing
+
 
 (defn solve [equation]
   (let [axis     (:axis (first equation))
         win-size (axis (window-size))
         constant (- win-size
-                    (transduce (comp
-                                (filter :const)
-                                (map :num))
-                               + 0 equation))
-        coef     (apply + (map :num (filter :var equation)))]
+                    (transduce
+                     (comp
+                      (filter :const)
+                      (map :num))
+                     + 0 equation))
+        coef     (apply + (map :coefficient (filter :var equation)))]
     (/ constant coef)))
+ 
 
-
-(defn tree->width-equations [{:keys [width partition coef path]}]
+(defn tree->width-equations
+  [{:keys [width #_margin-left partition coef coefficient min-width path]}]
   (if width
     (list (list {:num width
                  coef true
                  :axis :width
-                 :path (conj path :width)}))
+                 :coefficient coefficient
+                 :max Infinity
+                 :min 250
+                 :path (conj path :width)}
+                #_{:num (or margin-left 0)
+                 :const true}))
     (if (= partition :column)
       cartesian-product
       (partial apply concat))))
 
 
-(defn tree->height-equations [{:keys [height partition coef path]}]
+(defn tree->height-equations
+  [{:keys [height #_margin-top
+           partition coef coefficient min-height path]}]
   (if height
     (list (list {:num height
                  coef true
                  :axis :height
-                 :path (conj path :height)}))
+                 :coefficient coefficient
+                 :max Infinity
+                 :min  250
+                 :path (conj path :height)}
+                #_{:num margin-top
+                 :const true}))
     (if (= partition :row)
       cartesian-product
       (partial apply concat))))
 
 
+(defn calc-extrema [equation rslt]
+  (map (fn [{:keys [num min max var coefficient] :as term}]
+         (if var
+           (let [x (* rslt coefficient)]
+             (if (<= x min)
+               (when true
+                 (assoc term :num min :const true :var false))
+               (if (>= x max)
+                 (assoc term :num max :const true :var false)
+                 term)))
+           term))
+       equation))
+
+
 (defn equation->tree
-  [[{:keys [path num] :as eq} & eqs] tree rslt]
+  [[{:keys [path num var coefficient] :as eq} & eqs] tree rslt]
   (if eq
     (recur eqs
-           (assoc-in tree path
-                     (* num rslt))
+           (assoc-in
+            tree path
+            (if var
+              (* coefficient rslt)
+              num))
            rslt)
     tree))
 
+
+(defn solve-equation [equation]
+  (let [solution (solve equation)]
+    (map (fn [{:keys [var num coefficient]}]
+           (if var (* coefficient solution) num))
+         equation)))
 
 (defn equations->tree
   [[eq & eqs] tree]
@@ -87,29 +107,40 @@
     (recur eqs
            (equation->tree eq tree (solve eq)))
     tree))
-
-
+   
 
 (defn update-layout! [root]
   (let [x
         (->
-         (tree-recurse root tree->width-equations)
+         (rx root tree->width-equations)
          (equations->tree root))]
     (->
-     (tree-recurse x tree->height-equations)
+     (rx x tree->height-equations)
      (equations->tree x))))
 
-
-
+(def equation1 (nth (rx (:root @data/state) tree->height-equations) 1))
+(def equation2 (nth (rx (:root @data/state) tree->height-equations) 2))
+(def equation3 (nth (rx (:root @data/state) tree->height-equations) 3))
+(def equation4 (nth (rx (:root @data/state) tree->height-equations) 4))
+(reduce + 0  (solve-equation equation1))
+equation2
+(reduce + 0 (solve-equation equation2))
+equation3
+(map :num equation3)
+(map :coefficient equation3)
+(reduce + 0 (solve-equation equation3))
+(map :coefficient  equation4)
+(reduce + 0 (solve-equation equation4))
+(solve equation4)
 
 (defn path= [[i1 & p1] [i2 & p2]]
   (if (= i1 i2)
     (if (and p1 p2)
       (recur p1 p2)
       (if (or p1 p2)
-        false
-        true))
+        false true))
     false))
+
 
 (defn subpath? [[_ c1 & p1] [_ c2 & p2]]
   "retruns true if path p1 is a proper sub-path of p2."
@@ -118,6 +149,7 @@
       (recur p1 p2)
       false)
     (if c2 true false)))
+
 
 (defn display-subtree-rxf [path2 {:keys [path] :as node}]
   (if (subpath? path path2)
@@ -130,7 +162,7 @@
 
 
 (defn display-subtree! [path tree]
-  (tree-recurse tree (partial display-subtree-rxf path)))
+  (rx tree (partial display-subtree-rxf path)))
 
 
 ;; Node positions
@@ -138,16 +170,14 @@
 
 (defn add-ancestor-widths [path2 {:keys [path width]}]
   (if (subpath? path path2)
-    (if width
-      (partial apply + width)
+    (if width width
       (partial apply +))
     0))
 
 
 (defn add-ancestor-heights [path2 {:keys [path height]}]
   (if (subpath? path path2)
-    (if height
-      (partial apply + height)
+    (if height height
       (partial apply +))
     0))
 
@@ -156,7 +186,7 @@
   (if children 
     (if root
       (partial apply +
-               (tree-recurse
+               (rx
                 (:root @data/state)
                 (partial add-ancestor-widths path)))
       (if width width
@@ -170,7 +200,7 @@
   (if children
     (if root
       (partial apply +
-               (tree-recurse
+               (rx
                 (:root @data/state)
                 (partial add-ancestor-heights path))))
     (if height height
@@ -185,7 +215,7 @@
     (if (subpath? path path2)
       (fn [c]
         (let [n (nth path2 (inc (count path)))]
-          (apply + (tree-recurse
+          (apply + (rx
                     {:children (subvec children 0 n)}
                     tree->width)
                  c)))
@@ -198,7 +228,7 @@
     (if (subpath? path path2)
       (fn [c]
         (let [n (nth path2 (inc (count path)))]
-          (apply + (tree-recurse
+          (apply + (rx
                     {:children (subvec children 0 n)}
                     tree->height)
                  c)))
@@ -206,27 +236,27 @@
 
 
 (defn top-pos [path]
-  (tree-recurse
+  (rx
    (:root @data/state)
    (partial tree->top path)))
 
 
 (defn bottom-pos [path]
   (+ (top-pos path)
-     (tree-recurse
+     (rx
       (get-in (:root @data/state) path)
       tree->height)))
 
 
 (defn left-pos [path]
-  (tree-recurse
+  (rx
    (:root @data/state)
    (partial tree->left path)))
 
 
 (defn right-pos [path]
   (+ (left-pos path)
-     (tree-recurse
+     (rx
       (get-in (:root @data/state) path)
       tree->width)))
 
@@ -248,46 +278,48 @@
     true false))
 
 
-(defn update-left-adj-rxf [update-fn {:keys [children width partition] :as node}]
+(defn update-left-adj-rxf
+  [update-fn {:keys [children width partition] :as node}]
   (if width
     (update-fn node)
     (if (= partition :row)
       (fn [c] (assoc node :children c))
       (assoc-in node [:children (dec (count children))]
-                (tree-recurse
-                 (last children)
-                 update-left-adj-rxf)))))
+                (rx (last children)
+                    update-left-adj-rxf)))))
 
 
-(defn update-right-adj-rxf [update-fn {:keys [children width partition] :as node}]
+(defn update-right-adj-rxf
+  [update-fn {:keys [children width partition] :as node}]
   (if width
     (update-fn node)
     (if (= partition :row)
       (fn [c] (assoc node :children c))
       (assoc-in node [:children 0]
-                (tree-recurse
+                (rx
                  (first children)
                  update-right-adj-rxf)))))
 
 
-(defn update-top-adj-rxf [update-fn {:keys [children height partition] :as node}]
+(defn update-top-adj-rxf
+  [update-fn {:keys [children height partition] :as node}]
   (if height
     (update-fn node)
     (if (= partition :column)
       (fn [c] (assoc node :children c))
       (assoc-in node [:children (dec (count children))]
-                (tree-recurse
-                 (last children)
-                 update-top-adj-rxf)))))
+                (rx (last children)
+                    update-top-adj-rxf)))))
 
 
-(defn update-bottom-adj-rxf [update-fn {:keys [children height partition] :as node}]
+(defn update-bottom-adj-rxf
+  [update-fn {:keys [children height partition] :as node}]
   (if height
     (update-fn node)
     (if (= partition :column)
       (fn [c] (assoc node :children c))
       (assoc-in node [:children 0]
-                (tree-recurse
+                (rx
                  (first children)
                  update-bottom-adj-rxf)))))
 
@@ -298,21 +330,21 @@
     (fn [c] (assoc node :children c))
 
     (and (left-sib? path path2) (= key :left))
-    (tree-recurse node (partial update-left-adj-rxf update-fn))
+    (rx node (partial update-left-adj-rxf update-fn))
 
     (and (right-sib? path path2) (= key :right))
-    (tree-recurse node (partial update-right-adj-rxf update-fn))
+    (rx node (partial update-right-adj-rxf update-fn))
 
     (and (right-sib? path path2) (= key :top))
-    (tree-recurse node (partial update-top-adj-rxf update-fn))
+    (rx node (partial update-top-adj-rxf update-fn))
 
     (and (left-sib? path path2) (= key :bottom))
-    (tree-recurse node (partial update-bottom-adj-rxf update-fn))
+    (rx node (partial update-bottom-adj-rxf update-fn))
     
     :else node))
 
 
 (defn update-neighbor! [path key update-fn state]
-  (tree-recurse
+  (rx
    state
    (partial update-neighbors-rxf path key update-fn)))

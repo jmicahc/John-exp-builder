@@ -3,6 +3,7 @@
               [exp-builder.mutate :as mutate]
               [exp-builder.resize :as resize]
               [exp-builder.components :as components]
+              [exp-builder.dispatch :refer [build-rx]]
               [sablono.core :refer-macros [html]]
               [goog.dom :as gdom]
               [om.dom :as dom]
@@ -17,20 +18,19 @@
       {:value :not-found})))
 
 (def reconciler
-  (om/reconciler {:state data/state
-                  :parser (om/parser {:read read :mutate mutate/mutate})}))
+  (om/reconciler
+   {:state data/state
+    :parser (om/parser {:read read :mutate mutate/mutate})}))
 
-(declare render-app)
+(defmulti render :type)
 
-(defn dispatch [{:keys [children type path] :as props}]
-  (if children
-    (case type
-      :layout (partial components/layout-component props)
-      :selection (partial components/layout-select props)
-      (partial components/layout-component props))
-    (components/layout-component props)))
+(defmethod render :layout
+  [props]
+  (fn [c] (components/layout-component props c)))
 
-
+(defmethod render :default
+  [props]
+  identity)
 
 (defui Root
   static om/Ident
@@ -44,8 +44,9 @@
   Object
   (render [this]
           (let [{:keys [root]} (om/props this)]
-            (html [:div {:id "t"}
-                   (resize/tree-recurse root dispatch)]))))
+            (html [:div {:id "t"
+                         :style {:z-index -2}}
+                   (build-rx root render)]))))
 
 (om/add-root! reconciler
               Root
@@ -56,6 +57,26 @@
   [reconciler]
   {:pre [(om/reconciler? reconciler)]}
   (get @(:state reconciler) :root))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ;; Fix later
