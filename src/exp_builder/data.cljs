@@ -2,7 +2,7 @@
     (:require [om.next :as om]))
 
 
-(def state (atom
+#_(def state (atom
             {:current-root []
              :root
              {:partition :column
@@ -105,7 +105,6 @@
                           :backgroundColor "pink"
                           :coef :var}]}
                        {:type :layout
-                        :classes [:selection]
                         :select-root true
                         :dipslay "flex"
                         :flexDirection "row"
@@ -146,6 +145,10 @@
                       [{:width 350
                         :class :layout
                         :margin-left 10
+                        :classes [{:class :selection
+                                   :type :layout
+                                   :height "30px"
+                                   :classes [{:class :resize}]}]
                         :coefficient 35.0
                         :type :layout
                         :partition :row
@@ -170,6 +173,7 @@
                        {:width 250
                         :class :layout
                         :margin-left 10
+                        :select-root true
                         :coefficient 25.0
                         :type :layout
                         :partition :row
@@ -221,3 +225,147 @@
                   :coef :const
                   :backgroundColor "rgb(219, 212, 219);"
                   :children []}]}]}}))
+
+ 
+(def simple-state1
+  (atom
+   {:current-root []
+    :root
+    {:partition :column
+     :type :root
+     :class :layout
+     :display "flex"
+     :path []
+     :flexDirection "row"
+     :coef :const
+     :children
+     [{:partition :row
+       :class :layout
+       :type :layout
+       :display "flex"
+       :flexDirection "column"
+       :coef :var
+       :children
+       [{:height 350
+         :class :layout
+         :margin-left 10
+         :coefficient 35.0
+         :type :layout
+         :partition :column
+         :display "flex"
+         :backgroundColor "red"
+         :flexDirection "row"
+         :coef :var
+         :children
+         [{:width 200
+           :classes [{:class :selection}]
+           :class :layout
+           :margin-top 10
+           :coefficient 20.0
+           :type :layout
+           :backgroundColor "pink"
+           :coef :var}]}]}]}}))
+
+
+(defrecord Layout-node
+    [partition
+     type
+     coef
+     width
+     height
+     children
+     backgroundColor
+     coefficient])
+
+
+;; Root node must implement a selection context and maintain
+;; a state machine with mouse events as the alphabet and
+;; positioned selection nodes as states. This means it must
+;; view all click events emminating from ancestor leafs and
+;; update the selection state on this basis
+
+(def simple-state
+  (atom
+   {:root
+    {:partition :column
+     :type :root
+     :uuid 0
+     :coef :var
+     :children
+     [{:width 350
+       :uuid 1
+       :coefficient 35.0
+       :type :layout
+       :partition :row
+       :children [{:type :layout
+                   :uuid 2
+                   :height 80
+                   :coefficient 8
+                   :coef :const
+                   :partition :column
+                   :children []
+                   :backgroundColor "gray"}
+                  {:type :layout
+                   :uuid 3
+                   :height 700
+                   :coefficient 8
+                   :coef :var
+                   :partition :column
+                   :children []
+                   :backgroundColor "orange"}]
+       :backgroundColor "blue"
+       :coef :var}
+      {:width 350
+       :uuid 4
+       :partition :row
+       :coefficient 35.0
+       :type :layout
+       :children [{:type :layout
+                   :uuid 5
+                   :height 80
+                   :coefficient 8
+                   :coef :const
+                   :partition :column
+                   :backgroundColor "gray"}
+                  {:type :layout
+                   :uuid 6
+                   :height 700
+                   :coefficient 8
+                   :coef :var
+                   :partition :column
+                   :backgroundColor "blue"}]
+       :backgroundColor "red"
+       :coef :var}
+      {:width 350
+       :uuid 7
+       :partition :row
+       :coefficient 35.0
+       :children []
+       :type :layout
+       :backgroundColor "grey"
+       :coef :var}]}}))
+
+
+
+(def simplest-possible-state
+  (atom
+   {:selection-nodes []
+    :selection-type :layout
+    :selection-paths {} ;; :path index
+    :selection-ids   {} ;; :id index
+    :root {:partition :colomn
+           :type :root
+           :events {:type :or
+                    :mutes [['(resize-window)]]
+                    :children
+                    [{:type :event
+                      :key "click"}]}
+           :uuid 0
+           :coef :var
+           :width 200
+           :height 200
+           :coefficient 20
+           :backgroundColor "grey"
+           :children []}}))
+
+(def app-state simplest-possible-state)
