@@ -402,16 +402,11 @@
 
 (defmethod render :layout
   [{:keys [to-chan] :as props}]
-  (fn [& c] (apply layout-component
-                   props c)))
-
-(def temp-chan (chan (dropping-buffer 10)))
-
+  (fn [& c] (apply layout-component props c)))
 
 (defmethod render :root
   [{:keys [to-chan] :as props}]    
-  (fn [& c] (apply layout-component
-                   (assoc props :to-chan temp-chan) c)))
+  (fn [& c] (apply layout-component props c)))
 
 
 (defmethod render :default
@@ -423,7 +418,10 @@
 ;; Mutate
 
 
-(def mutate-chan (chan (dropping-buffer 5)))
+
+
+(def mutate-chan (chan (dropping-buffer 10)
+                       (filter :mutate)))
 
 
 (defmulti mutate om/dispatch)
@@ -431,42 +429,88 @@
 
 (defmethod mutate 'window-resize
   [{:keys [state] :as env} key params]
-  (when true
-    {:value {:keys [:root]}
-     :action #(swap! state
-                     (fn [state]
-                       (update state
-                               :root
-                               (partial display-subtree! []))))}))
+  {:value {:keys [:root]}
+   :action #(swap! state
+                   (fn [state]
+                     (update state
+                             :root
+                             (partial display-subtree! []))))})
 
 
 (defmethod mutate :default
   [{:keys [state] :as env} key params]
+  (print "in default mutate case")
   {:value :not-found})
 
+
+(defrecord MutationChannel [reconciler]
+  
+  component/Lifecycle
+  
+  (start [{:keys [reconciler]}]
+    
+    (go-loop []
+      (let [m (<! mutate-chan)]
+        (om/transact! reconciler (:expr m))
+        (recur)))
+
+    (.addEventListener js/window "resize"
+                       #(put! mutate-chan
+                              {:expr '[(window-resize)]}))
+    reconciler)
+
+  (stop [this]))
+
+(defn start-mutation-channel [reconciler]
+  (map->MutationChannel {:reconciler reconciler}))
 
 ;; =================================================
 ;; Selection
 
 (def selection-chan (chan (dropping-buffer 10)))
 
-(defn selection-state-machine []
-  (go-loop []
-    (let [e (<! selection-chan)]
-      (case [(:click e) (:ctrlKey e) (:shiftKey e)]
-        [true false false]
-        true
 
-        [true true false]
-        true
+(defmethod mutate 'testing
+  [{:keys [state] :as env} key
+   {:keys [uuid]}]
+  {:value {:keys [:selection]}
+   :action #((do (swap! state
+                        (fn [state]
+                          (print "state" state)
+                          (update-in
+                           state
+                           [:selection :children]
+                           (fn [s]
+                             (print "state" s "uuid" uuid)
+                             (conj s {:test "hello"})))))))})
 
-        [true false true]
-        true
 
-        [false false false]
-        nil)
-      (>! mutate-chan e)
-      (recur))))
+(defrecord SelectionStateMachine [reconciler]
+
+  component/Lifecycle
+  
+  (start [{:keys [reconciler]}]
+    (go-loop []
+      (let [{:keys [click ctrlKey shiftKey
+                    selected component] :as event}
+            (<! selection-chan)]
+        (cond
+        
+          click
+          (om/transact! reconciler '[(testing {:uuid 10})])
+        
+          :else nil)
+        (>! mutate-chan event)
+        (recur)))
+    
+    reconciler)
+
+  (stop [this]))
+
+(defn start-selection-machine [reconciler]
+  (map->SelectionStateMachine {:reconciler reconciler}))
+
+
 
 ;; =================================================
 ;; Dispatch
@@ -506,8 +550,6 @@
 
 (defn listen [event-struct multiple]
   {:pre [(not (empty? event-struct))]}
-  (print "event structure" event-struct)
-  (print "mult" multiple)
   (letfn
       [(walker [e]
          (go
@@ -540,6 +582,7 @@
                      (<! (walker (first (:children e))))
                      false)
                       
+
                    :delay
                    (do
                      (<! (walker (first (:children e))))
@@ -549,31 +592,36 @@
                       
                    :event
                    (<! (tap multiple
-                            (chan (dropping-buffer 1)
+                            (chan (dropping-buffer 5)
                                   (comp (filter #(= (:key %) (:key e)))
                                         (filter #(= (:uuid %) (:uuid e)))))))
 
                    (throw js/Error "fail"))]
              (if b
                (do
-                 (if (:mutes e)
-                   (go (onto-chan mutate-chan
-                                  (:mutes e)
-                                  false)))
+                 (when-let [mutes (:mutes e)]
+                   (go (onto-chan selection-chan mutes false)))
                  true)
                false))))]
     (go-loop []
       (let [v (<! (walker event-struct))]
-        (print v)
         (recur)))))
 
 ;; ============================================
 ;; Components
+(defui Selection
+  Object
+  (render [this]
+          (html [:div])))
+
+
+(def selection-component (om/factory Selection))
+
 
 (defui Root
   static om/Ident
-  (ident [this {:keys [type]}]
-         [:component/type type])
+  (ident [this {:keys [uuid]}]
+         [:component/uuid uuid])
 
   
   static om/IQuery
@@ -583,10 +631,10 @@
   
   Object
   (render [this]
-          (let [{:keys [root]} (om/props this)]
-            (print "hello" root)
+          (let [{:keys [root selection]} (om/props this)]
             (html [:div {:id "t"
                          :style {:z-index -2}}
+                   (selection-component selection)
                    (build-rx root render)]))))
 
 (declare test-data)
@@ -600,7 +648,7 @@
   
   static om/IQuery
   (query [this]
-         [:children :width :height
+         '[:children :width :height
           :flexDirection :display
           :backgroundColor])
 
@@ -608,31 +656,26 @@
   Object
   (componentWillMount
    [this]
-   (when-let [event-struct (:events (om/props this))]
-     (let [to-chan (:to-chan (om/props this))
-           multiple (mult to-chan)]
-       (listen test-data multiple))))
+   (when-let [{:keys [to-mult events]} (om/props this)]
+     (listen events to-mult)))
 
   
   (render
    [this]
-   (let [{:keys [width
-                 height
-                 partition
-                 to-chan
-                 backgroundColor]}
+   (let [{:keys [width height
+                 partition to-chan
+                 backgroundColor] :as props}
          (om/props this)]
-            
+
      (html [:div
             {:onClick
-             (fn [e] 
+             (fn [e]
                (put!
                 to-chan
                 (into (om/props this)
                       {:shiftKey   e.shiftKey
                        :ctrlKey    e.ctrlKey
-                       :altKey     e.altKey
-                       :component  this
+                       :altKey     e.altKey  
                        :click      true
                        :key        :a
                        :path       (om/path this)
@@ -694,12 +737,16 @@
   (start [{:keys [state]}]
     (letfn [(walker [to-chan {:keys [children events] :as node}]
               (if events
-                (let [from-chan (chan (dropping-buffer 1))]
-                  (pipe from-chan to-chan)
+
+                (let [from-chan (chan (dropping-buffer 10))
+                      from-mult (mult from-chan)]
+                  (tap from-mult to-chan)
                   (assoc node
-                         :to-chan from-chan
+                         :to-mult  from-mult
+                         :to-chan  from-chan
                          :children (mapv #(walker % from-chan)
                                          children)))
+                
                 (assoc node
                        :to-chan  to-chan
                        :children (mapv #(walker % to-chan)
@@ -709,41 +756,33 @@
                (update
                 state
                 :root
-                (partial walker mutate-chan))))
-      (print "new state" @state)
+                (partial walker selection-chan))))
+      
       state))
 
   (stop [app-state]))
 
+
 (defn add-channels [state-atom]
   (map->Channels {:state state-atom}))
+
+(declare reconciler)
 
 
 (defrecord OmStart [state]
   component/Lifecycle
   (start [{:keys [state]}]
+    
     (let [reconciler
           (om/reconciler
            {:state  state
-            :parser (om/parser {:read read :mutate mutate})})
-          
-          window-resize-handler
-          (fn [event]
-            (om/transact! (app-root reconciler)
-                          '[(window-resize)]))]
+            :parser (om/parser {:read read :mutate mutate})})]
       
-      (om/add-root!
-       reconciler
-       Root
-       (gdom/getElement "app"))
+      (om/add-root! reconciler
+                    Root
+                    (gdom/getElement "app"))
       
-      (go-loop []
-        (let [m (<! mutate-chan)]
-          (om/transact! (app-root reconciler) (:expr m))
-          (recur)))
-
-      (.addEventListener js/window "resize" window-resize-handler)
-      (window-resize-handler nil)))
+      reconciler))
 
   (stop [state]))
 
@@ -757,17 +796,24 @@
   (let [{:keys [host port]} config-options]
     (component/system-map
      :app-state   (db->app-state host port)
+
      
      :with-chans  (component/using
                    (add-channels {})
                    {:state :app-state})
      
-     :start-om    (component/using
+
+     :reconciler  (component/using
                    (start-om {})
-                   {:state :with-chans}))))
+                   {:state :with-chans})
 
+     :selection   (component/using
+                   (start-selection-machine {})
+                   {:reconciler :reconciler})
 
-
+     :mutation    (component/using
+                   (start-mutation-channel {})
+                   {:reconciler :reconciler}))))
 
 ;; ==========================================
 ;; tests
@@ -798,10 +844,11 @@
 
 
 (when false
-  (put! ch-test {:key :a :uuid 0})
+  (put! mutate-chan {:key :a :uuid 0})
   (put! ch-test {:key :b :uuid 0})
   (put! ch-test {:key :c :uuid 2})
   (put! ch-test {:key :d :uuid 3}))
+
 
 
 (defn main [& args]

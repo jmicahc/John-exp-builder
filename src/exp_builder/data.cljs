@@ -349,17 +349,35 @@
 
 (def simplest-possible-state
   (atom
-   {:selection-nodes []
-    :selection-type :layout
-    :selection-paths {} ;; :path index
-    :selection-ids   {} ;; :id index
+   {:selection {:type :selection-root
+                :width 0
+                :top   0
+                :left  0
+                :right 0
+                :children []}
+    :uuid 10
     :root {:partition :colomn
            :type :root
-           :events {:type :or
-                    :mutes [['(resize-window)]]
-                    :children
-                    [{:type :event
-                      :key "click"}]}
+           :events
+           {:type :or
+            :mutes [{:mutate true
+                     :expr '[(window-resize)]}]
+            :children
+            [{:type :and
+              :children
+              [{:type :event
+                :key :b
+                :uuid 1}
+               {:type :then
+                :children [{:type :event
+                            :key :c
+                            :uuid 2}
+                           {:type :event
+                            :key :d
+                            :uuid 3}]}]}
+             {:type :event
+              :key :a
+              :uuid 0}]}
            :uuid 0
            :coef :var
            :width 200
