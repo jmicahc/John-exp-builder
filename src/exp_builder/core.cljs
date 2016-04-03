@@ -1,5 +1,6 @@
 (ns ^:figwheel-always exp-builder.core
-  (:require-macros [cljs.core.async.macros :refer [go go-loop alt!]])
+  (:require-macros [cljs.core.async.macros :refer [go go-loop alt!]]
+                   [cljs.pprint :refer [pp]])
   (:require [exp-builder.data :as data]
             #_[exp-builder.mutate :as mutate :refer [mutate-chan]]
             #_[exp-builder.resize :as resize]
@@ -12,12 +13,15 @@
               tap mult onto-chan]]
             #_[exp-builder.dispatch :refer [build-rx]]
             [sablono.core :refer-macros [html]]
+            [cljs.pprint :refer [pprint]]
             [goog.dom :as gdom]
             [om.dom :as dom]
             [om.next :as om :refer-macros [defui]]))
 
+
 (declare rx)
 (declare rx-build)
+(declare reconciler)
 
 
 (enable-console-print!)
@@ -63,36 +67,34 @@
  
 
 (defn tree->width-equations
-  [{:keys [width #_margin-left partition coef
+  [{:keys [width partition coef ident
            coefficient min-width path]}]
   (if width
     (list (list {:num width
                  coef true
                  :axis :width
                  :coefficient coefficient
+                 :ident ident
                  :max Infinity
                  :min 250
-                 :path (conj path :width)}
-                #_{:num (or margin-left 0)
-                 :const true}))
+                 :path (conj path :width)}))
     (if (= partition :column)
       cartesian-product
       (partial apply concat))))
 
 
 (defn tree->height-equations
-  [{:keys [height #_margin-top
-           partition coef coefficient min-height path]}]
+  [{:keys [height ident partition coef
+           coefficient min-height path]}]
   (if height
     (list (list {:num height
                  coef true
                  :axis :height
                  :coefficient coefficient
+                 :ident ident
                  :max Infinity
                  :min  250
-                 :path (conj path :height)}
-                #_{:num margin-top
-                 :const true}))
+                 :path (conj path :height)}))
     (if (= partition :row)
       cartesian-product
       (partial apply concat))))
@@ -111,19 +113,6 @@
        equation))
 
 
-(defn equation->tree
-  [[{:keys [path num var coefficient] :as eq} & eqs] tree rslt]
-  (if eq
-    (recur eqs
-           (assoc-in
-            tree path
-            (if var
-              (* coefficient rslt)
-              num))
-           rslt)
-    tree))
-
-
 (defn solve-equation [equation]
   (let [solution (solve equation)]
     (map (fn [{:keys [var num coefficient]}]
@@ -131,22 +120,38 @@
          equation)))
 
 
-(defn equations->tree
-  [[eq & eqs] tree]
-  (if eq
-    (recur eqs
-           (equation->tree eq tree (solve eq)))
-    tree))
+(defn equation->tree!
+  [[{:keys [path axis num var coefficient ident] :as term} & terms] rslt]
+  (when term
+    (when var
+      (let [x (* coefficient rslt)]
+        (case axis
+          :height (om/transact! reconciler
+                                `[(update-height {:ident ~ident
+                                                  :height ~x})])
+          :width  (om/transact! reconciler
+                                `[(update-width {:ident ~ident
+                                                 :width ~x})]))))
+    (recur terms
+           rslt)))
+
+
+
+(defn equations->tree!
+  [[eq & eqs]]
+  (when eq
+    (equation->tree! eq (solve eq))
+    (recur eqs)))
    
 
 (defn update-layout! [root]
-  (let [x
-        (->
-         (rx root tree->width-equations)
-         (equations->tree root))]
+  (do
     (->
-     (rx x tree->height-equations)
-     (equations->tree x))))
+     (rx root tree->width-equations)
+     equations->tree!)
+    (->
+     (rx root tree->height-equations)
+     equations->tree!)))
 
 
 ;; Remove, right?
@@ -162,7 +167,7 @@
 
 
 (defn subpath? [[_ c1 & p1] [_ c2 & p2]]
-  "retruns true if path p1 is a proper sub-path of p2."
+  "returns true if path p1 is a proper sub-path of p2."
   (if c1
     (if (= c1 c2)
       (recur p1 p2)
@@ -180,8 +185,9 @@
       (assoc node :display "none"))))
 
 
-(defn display-subtree! [path tree]
-  (rx tree (partial display-subtree-rxf path)))
+(defn display-subtree! [path root-identity]
+  (rx root-identity
+      (partial display-subtree-rxf path)))
 
 
 
@@ -390,33 +396,28 @@
 
 
 
-;; ==================================================
-;; Render
+;; =================================================
+;; Dispatch
 
 
-(declare layout-component)
+
+(defn rx [node outer]
+  (let [x (outer node)]
+    (if (fn? x)
+      (x (mapv
+          (fn [ident]
+            (rx (assoc
+                 (get-in @reconciler ident)
+                 :ident ident)
+                outer))
+          (:children node)))
+      x)))
 
 
-(defmulti render :type)
-
-
-(defmethod render :layout
-  [{:keys [to-chan] :as props}]
-  (fn [& c] (apply layout-component props c)))
-
-(defmethod render :root
-  [{:keys [to-chan] :as props}]    
-  (fn [& c] (apply layout-component props c)))
-
-
-(defmethod render :default
-  [props]
-  identity)
 
 
 ;; ===================================
 ;; Mutate
-
 
 
 
@@ -428,18 +429,33 @@
 
 
 (defmethod mutate 'window-resize
-  [{:keys [state] :as env} key params]
-  {:value {:keys [:root]}
-   :action #(swap! state
+  [{:keys [state] :as env} k _]
+  {:action #(display-subtree!
+             [] (assoc (get-in @state (:layout/node @state))
+                       :ident [:layout-inner 0]))})
+
+
+(defmethod mutate `update-width
+  [{:keys [state]} k
+   {:keys [ident width]}]
+  {:action #(swap! state
+                   (fn  [state]
+                     (assoc-in state
+                               (conj ident :width)
+                               width)))})
+
+(defmethod mutate `update-height
+  [{:keys [state]} k
+   {:keys [ident height]}]
+  {:action #(swap! state
                    (fn [state]
-                     (update state
-                             :root
-                             (partial display-subtree! []))))})
+                     (assoc-in state
+                               (conj ident :height)
+                               height)))})
 
 
 (defmethod mutate :default
   [{:keys [state] :as env} key params]
-  (print "in default mutate case")
   {:value :not-found})
 
 
@@ -451,7 +467,7 @@
     
     (go-loop []
       (let [m (<! mutate-chan)]
-        (om/transact! reconciler (:expr m))
+        (om/transact! reconciler (:exprp m))
         (recur)))
 
     (.addEventListener js/window "resize"
@@ -473,16 +489,13 @@
 (defmethod mutate 'testing
   [{:keys [state] :as env} key
    {:keys [uuid]}]
-  {:value {:keys [:selection]}
-   :action #((do (swap! state
-                        (fn [state]
-                          (print "state" state)
-                          (update-in
-                           state
-                           [:selection :children]
-                           (fn [s]
-                             (print "state" s "uuid" uuid)
-                             (conj s {:test "hello"})))))))})
+  {:action #(swap! state
+                   (fn [state]
+                     (update-in
+                      state
+                      [:uuid uuid]
+                      (fn [props]
+                        props))))})
 
 
 (defrecord SelectionStateMachine [reconciler]
@@ -497,7 +510,7 @@
         (cond
         
           click
-          (om/transact! reconciler '[(testing {:uuid 10})])
+          (om/transact! reconciler '[(window-resize {:uuid 10})])
         
           :else nil)
         (>! mutate-chan event)
@@ -507,42 +520,9 @@
 
   (stop [this]))
 
+
 (defn start-selection-machine [reconciler]
-  (map->SelectionStateMachine {:reconciler reconciler}))
-
-
-
-;; =================================================
-;; Dispatch
-
-(declare rx)
-
-
-(defn inner
-  [form index path outer]
-  (let [new-path (conj path :children index)
-        new-form (assoc form :path new-path)
-        x (outer new-form)]
-    (if (fn? x)
-      (rx new-form outer new-path)
-      x)))
-
-
-
-(defn rx
-  ([node outer] (rx (assoc node :root true) outer []))
-  ([{:keys [children classes] :as form} outer path]
-   (if (sequential? children)
-     (let [x (outer form)]
-       (if (fn? x)
-         (x (mapv (fn [c i] (inner c i path outer)) children (range)))
-         x))
-     (outer form))))
-
-
-(defn build-rx [{:keys [children] :as form} rxf]
-  ((rxf form) (map #(build-rx % rxf) children)))
-
+  (map->SelectionStateMachine {:reconciler reconciler}))  
 
 
 ;; ===========================================
@@ -609,76 +589,21 @@
 
 ;; ============================================
 ;; Components
-(defui Selection
-  Object
-  (render [this]
-          (html [:div])))
 
-
-(def selection-component (om/factory Selection))
-
-
-(defui Root
-  static om/Ident
-  (ident [this {:keys [uuid]}]
-         [:component/uuid uuid])
-
-  
-  static om/IQuery
-  (query [this]
-         '[:root])
-
-  
-  Object
-  (render [this]
-          (let [{:keys [root selection]} (om/props this)]
-            (html [:div {:id "t"
-                         :style {:z-index -2}}
-                   (selection-component selection)
-                   (build-rx root render)]))))
-
-(declare test-data)
-
-
-(defui Layout
-  om/Ident
-  (ident [this {:keys [uuid]}]
-         [:node/uuid uuid])
-
-  
-  static om/IQuery
-  (query [this]
-         '[:children :width :height
-          :flexDirection :display
-          :backgroundColor])
-
-  
-  Object
-  (componentWillMount
-   [this]
-   (when-let [{:keys [to-mult events]} (om/props this)]
-     (listen events to-mult)))
-
-  
-  (render
-   [this]
-   (let [{:keys [width height
-                 partition to-chan
-                 backgroundColor] :as props}
-         (om/props this)]
-
-     (html [:div
+(defn layout-div
+  [{:keys [width height partition uuid to-chan
+           backgroundColor] :as props} & children]
+  (html [:div
             {:onClick
              (fn [e]
                (put!
                 to-chan
-                (into (om/props this)
+                (into props
                       {:shiftKey   e.shiftKey
                        :ctrlKey    e.ctrlKey
                        :altKey     e.altKey  
                        :click      true
                        :key        :a
-                       :path       (om/path this)
                        :name       e.type})))
              :style
              {:width width
@@ -689,28 +614,111 @@
               :display "flex"
               :backgroundColor backgroundColor
               :box-shadow "0 2px 15px 0 rgba(0, 0, 0, 0.2)"}}
-            (om/children this)]))))
+         children]))
 
-(def layout-component (om/factory Layout))
+
+(declare layout-leaf)
+(declare layout-inner)
+(declare layout-composite)
+
+
+(defui LayoutInner
+  static om/IQuery
+  (query [this]
+         '[:width :height :flexDirection :uuid
+           :to-chan :to-mult :partition
+           :display :backgroundColor {:children ...}])
+
+  Object
+  (render [this]
+          (let [{:keys [children] :as props} (om/props this)]
+            (layout-div props (map layout-inner children)))))
+
+
+(defui LayoutLeaf
+  static om/IQuery
+  (query [this]
+         '[:width :height :flexDirection :uuid :display
+           :partition :to-chan :to-mult :events
+           :backgroundColor])
+  
+  Object
+  (render [this]
+          (layout-div (om/props this))))
+
+
+(defui LayoutComposite
+  static om/Ident
+  (ident [this {:keys [uuid children]}]
+         (if-not (empty? children)
+           [:layout-inner uuid]
+           [:layout-leaf uuid]))
+
+  static om/IQuery
+  (query [this]
+         {:layout-leaf (om/get-query LayoutLeaf)
+          :layout-inner (om/get-query LayoutInner)})
+  
+  Object
+  (componentWillMount
+   [this]
+   (when-let [events (:events (om/props this))]
+     (listen events (:to-mult (om/props this)))))
+  (render [this]
+          (let [{:keys [uuid] :as props} (om/props this)
+                [type id] (om/get-ident this)]
+            (({:layout-leaf layout-leaf
+               :layout-inner layout-inner} type) props))))
+
+
+(defui LayoutRoot
+  static om/IQuery
+  (query [this]
+         [{:layout/node (om/get-query LayoutComposite)}])
+
+  Object
+  (render [this]
+          (let [{:keys [layout/node]} (om/props this)]
+            (html [:div {:id "layout-root" :style {:display "flex"}}
+                   (layout-composite node)]))))
+
+
+(def layout-composite (om/factory LayoutComposite))
+(def layout-inner (om/factory LayoutInner))
+(def layout-leaf  (om/factory LayoutLeaf))
 
 
 ;; ========================================
-;; Reconciler
+;; Reader
+
+(defmulti read om/dispatch)
 
 
-
-(defn app-root
-  "Return the application's root component."
-  [reconciler]
-  {:pre [(om/reconciler? reconciler)]}
-  (get @(:state reconciler) :root))
+(defmethod read :default
+  [{:keys [data] :as env} k _]
+  {:value (get data k)})
 
 
-(defn read [{:keys [state] :as env} key params]
-  (let [st @state]
-    (if-let [value (key st)]
-      {:value value}
-      {:value :not-found})))
+(defmethod read :children
+  [{:keys [parser data union-query state] :as env} k _]
+  (let [st @state
+        f #(parser (assoc env :data (get-in st %))
+                   ((first %) union-query))]
+    {:value (into []
+                  (map f)
+                  (:children data))}))
+
+
+(defmethod read :layout/node
+  [{:keys [state parser query ast] :as env} k _]
+  (let [st @state
+        [type id :as entry] (get st k)
+        data    (get-in st entry)
+        new-env (assoc env
+                       :data data
+                       :union-query query)
+        value (parser new-env (type query))]
+    {:value value}))
 
 
 ;; =============================================
@@ -737,64 +745,67 @@
   (start [{:keys [state]}]
     (letfn [(walker [to-chan {:keys [children events] :as node}]
               (if events
-
                 (let [from-chan (chan (dropping-buffer 10))
                       from-mult (mult from-chan)]
                   (tap from-mult to-chan)
                   (assoc node
-                         :to-mult  from-mult
-                         :to-chan  from-chan
-                         :children (mapv #(walker % from-chan)
-                                         children)))
-                
+                         :to-chan from-chan
+                         :to-mult from-mult
+                         :children (map #(walker from-chan %)
+                                        children)))
                 (assoc node
                        :to-chan  to-chan
-                       :children (mapv #(walker % to-chan)
+                       :children (mapv #(walker to-chan %)
                                        children))))]
-      (swap! state
-             (fn [state]
-               (update
-                state
-                :root
-                (partial walker selection-chan))))
-      
-      state))
+      (update
+       state
+       :layout/node
+       (partial walker selection-chan))))
 
   (stop [app-state]))
+
 
 
 (defn add-channels [state-atom]
   (map->Channels {:state state-atom}))
 
-(declare reconciler)
 
 
-(defrecord OmStart [state]
+
+(defrecord Reconciler [state]
+  
   component/Lifecycle
+  
   (start [{:keys [state]}]
     
-    (let [reconciler
+    (set! reconciler
           (om/reconciler
            {:state  state
-            :parser (om/parser {:read read :mutate mutate})})]
-      
-      (om/add-root! reconciler
-                    Root
-                    (gdom/getElement "app"))
-      
-      reconciler))
+            :parser (om/parser
+                     {:read read
+                      :mutate mutate})}))
+    
+    (om/add-root! reconciler
+                  LayoutRoot
+                  (gdom/getElement "app"))
+    
+    reconciler)
 
   (stop [state]))
 
 
-(defn start-om [state]
-  (map->OmStart {:state state}))
+(defrecord Time [mutation])
+
+
+(defn start-reconciler [state]
+  (map->Reconciler {:state state}))
 
 
 
 (defn system [config-options]
   (let [{:keys [host port]} config-options]
     (component/system-map
+     
      :app-state   (db->app-state host port)
 
      
@@ -804,7 +815,7 @@
      
 
      :reconciler  (component/using
-                   (start-om {})
+                   (start-reconciler {})
                    {:state :with-chans})
 
      :selection   (component/using
