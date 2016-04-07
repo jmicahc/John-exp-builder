@@ -279,8 +279,8 @@
 
 
 (def simple-state
-  {:selection {:children [[:layout 3]
-                          [:layout 6]]}
+  {:selection {:children [{:top 10 :left 5 :bottom 5}]}
+   :test "hello"
    :layout/node
    {:partition :column
     :type :root
@@ -350,6 +350,7 @@
       :coefficient 35.0
       :uuid 7
       :partition :row
+      :children []
       :type :layout
       :backgroundColor "grey"
       :coef :var}]}})
