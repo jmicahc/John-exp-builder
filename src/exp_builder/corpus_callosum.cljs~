@@ -1,3 +1,0 @@
-(ns exp-builder.corpus-callosum
-  (:require [om.next :as om]
-            [exp-builder.corpus-callosum :as cc]))

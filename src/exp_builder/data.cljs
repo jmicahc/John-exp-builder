@@ -266,16 +266,6 @@
           :coef :var}]}]}]}})
 
 
-(defrecord Layout-node
-    [partition
-     type
-     coef
-     width
-     height
-     children
-     backgroundColor
-     coefficient])
-
 
 
 (def simple-state
@@ -283,8 +273,15 @@
                           [:layout 6]]}
    :layout/node
    {:partition :column
-    :type :root
+    :type :layout
     :uuid 0
+    :resize [{:type   :resize
+              :uuid   20
+              :events {:type  :event
+                       :name  :onDrag
+                       :mutes [{:mutate true
+                                :expr '[(window-resize)]}]}}]
+    
     :events {:type :or
              :mutes [{:mutate true
                       :expr '[(window-resize)]}]
@@ -305,10 +302,65 @@
                :key :a
                :uuid 0}]}
     :children
-    [{:width 350
+    [#_{:type :layout-root
+      :uuid 50
+      :events {:type :or
+               :mutes [{:mutate true
+                        :expr '[(window-resize)]}]
+               :children
+               [{:type :and
+                 :children
+                 [{:type :event
+                   :key :b
+                   :uuid 1}
+                  {:type :then
+                   :children [{:type :event
+                               :key :c
+                               :uuid 2}
+                              {:type :event
+                               :key :d
+                               :uuid 3}]}]}
+                {:type :event
+                 :key :a
+                 :uuid 0}]}
+      :left 500
+      :top  500
+      :coef :const
+      :layout-root/width  200
+      :layout-root/height 400
+      :width 200
+      :partition :row
+      :children
+      [#_{:type :resize
+        :uuid 61}
+       {:type :layout
+        :uuid 51
+        :height 30
+        :coefficient 3
+        :partition :column
+        :backgroundColor "red"}
+       {:type :layout
+        :uuid 52
+        :height 80
+        :coefficient 8 
+        :coef :const
+        :partition :column
+        :backgroundColor "gray"}
+       {:type :layout
+        :uuid 53
+        :height 70
+        :coefficient 7
+        :coef :var
+        :partition :column
+        :backgroundColor "orange"}]}
+     {:width 350
       :uuid 1
       :coefficient 35.0
       :type :layout
+      :events {:type :event
+               :key :a
+               :uuid 0
+               :mutes '[(window-resize)]}
       :partition :row
       :children [{:type :layout
                   :uuid 2
