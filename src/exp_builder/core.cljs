@@ -57,109 +57,72 @@
 ;; ====================================================
 ;; Global Tree Resizing
 
-
-(defn solve [equation win-size]
-  (let [axis     (:axis (first equation))
-        constant (- win-size
-                    (transduce
-                     (comp
-                      (filter :const)
-                      (map :num))
-                     + 0 equation))
-        coef     (apply + (map :coefficient (filter :var equation)))]
-    (/ constant coef)))
- 
-
 (defn tree->width-equations
   [{:keys [width partition coef path] :as node}]
   (if width
-    (list (list
-           (merge node
-                  {:num width
-                   coef true
-                   :axis :width
-                   :max Infinity
-                   :min 250})))
+    (list (list node))
     (if (= partition :column)
       cartesian-product
       (partial apply concat))))
 
 
 (defn tree->height-equations
-  [{:keys [height partition coef] :as node}]
+  [{:keys [height partition coef path] :as node}]
   (if height
-    (list (list
-           (merge
-            node
-            {:num height
-             coef true
-             :axis :height
-             :max Infinity
-             :min  250})))
+    (list (list node))
     (if (= partition :row)
       cartesian-product
       (partial apply concat))))
 
 
-(defn calc-extrema [equation rslt]
-  (map (fn [{:keys [num min max var coefficient] :as term}]
-         (if var
-           (let [x (* rslt coefficient)]
-             (if (<= x min)
-               (assoc term :num min :const true :var false)
-               (if (>= x max)
-                 (assoc term :num max :const true :var false)
-                 term)))
-           term))
-       equation))
+(defn solve [equation win-size axis]
+  (let [constant (- win-size
+                    (transduce
+                     (comp
+                      (filter #(= (:coef %) :const))
+                      (map axis))
+                     + 0 equation))
+        coef     (apply + (map :coefficient
+                               (filter #(= (:coef %) :var) equation)))]
+    (/ constant coef)))
 
 
-(defn equation->tree!
-  [[{:keys [axis var coefficient ident] :as term} & terms]]
-  (when term
-    (when var
-      (case axis
-        :height
-        (put! mutate-chan {:key 'update-height
-                           :mutate true
-                           :params term})
-        :width
-        (put! mutate-chan {:key 'update-width
-                           :mutate true
-                           :params term})))
-    (recur terms)))
+(defn solve-equations [equations length axis]
+  (let [solve-eq
+        (fn [equation]
+          (let [sol (solve equation length axis)]
+            (into []
+                  (comp
+                   (filter #(= (:coef %) :var))
+                   (map (fn [{:keys [coefficient] :as term}]
+                          (assoc term axis (* sol coefficient)))))
+                  equation)))]
+    (mapv solve-eq equations)))
 
 
-(defn updated-terms [equation length]
-  (let [solution (solve equation length)]
-    (into []
-          (comp
-           (filter :var)
-           (map (fn [{:keys [coefficient] :as term}]
-                  (assoc term :num (* solution coefficient)))))
-          equation)))
+(defn equation->tree
+  [[{:keys [axis var coefficient ident] :as term} & terms] state]
+  (if term
+    (recur terms (assoc-in state ident term))
+    state))
 
 
-(defn equations->tree!
-  [[eq & eqs] length]
-  (when eq
-    (equation->tree! (updated-terms eq length))
-    (recur eqs length)))
+(defn equations->tree [[eq & eqs] state]
+  (if-not eq
+    state
+    (recur eqs (equation->tree eq state))))
 
-
-(defn print-equations [eqs]
-  (pprint eqs)
-  eqs)
+  
 
 (defn update-layout!
-  [{:keys [layout-root/width layout-root/height] :as root}]
-  (do
-    (->
-     (rx root tree->width-equations)
-     (equations->tree! width))
-    (->
-     (rx root tree->height-equations)
-     (equations->tree! height))))
+  [{:keys [layout-root/width layout-root/height] :as root} state]
+  (->
+   (rx root tree->height-equations)
+   (solve-equations height :height)
+   (equations->tree (->
+                     (rx root tree->width-equations)
+                     (solve-equations width :width)
+                     (equations->tree state)))))
 
 
 ;; Remove, right?
@@ -443,19 +406,20 @@
 (defmethod mutate 'window-resize
   [{:keys [state]} key
    {:keys [ident]}]
-  {:action #(update-layout! (get-in @state ident))})
+  {:action #(swap! state
+                   (fn [st]
+                     (update-layout! (get-in st ident) st)))})
 
 
- 
-(defmethod mutate 'add-attrs
+
+ (defmethod mutate 'add-attrs
   [{:keys [state]} key {:keys [ident attrs]}]
   {:action #(swap! state
                    (fn [state]
                      (update-in state
                                 ident
-                                merge
-                                attrs)))})
-
+                                (fn [node]
+                                  (merge node attrs)))))})
 
 
 
@@ -499,6 +463,7 @@
   (start [{:keys [reconciler]}]
     (go-loop []
       (let [{:keys [params key]} (<! mutate-chan)]
+        (.log js/console "@<!mutat-chan")
         (om/transact! reconciler `[(~key ~params)])
         (recur)))
 
@@ -511,9 +476,10 @@
         (let [resize (<! resize-buffer)]
           (onto-chan mutate-chan
                      [{:key    'add-attrs
-                       :params {:ident root-ident
-                                :attrs  {:layout-root/width (window-width)
-                                         :layout-root/height (window-height)}}
+                       :params
+                       {:ident root-ident
+                        :attrs  {:layout-root/width (window-width)
+                                 :layout-root/height (window-height)}}
                        :mutate true}
                       {:key    'window-resize
                        :params {:ident root-ident}
@@ -651,7 +617,7 @@
 
 
 ;; ============================================
-;; Components
+; Components
 
 (declare resize-component)
 (declare layout-inner)
@@ -659,6 +625,10 @@
 (declare component)
 (declare layout-leaf)
 (declare selection-root)
+(declare resize-left-component)
+(declare resize-right-component)
+(declare resize-top-component)
+(declare resize-bottom-component)
 
 
 
@@ -748,46 +718,50 @@
 
 
 (defn layout-div
-  [{:keys [width height partition uuid to-chan
+  [{:keys [width height partition uuid to-chan zIndex
            backgroundColor] :as props} & children]
   (let [e->chan (partial event->chan props)]
+    (print "z-index" zIndex)
     (html [:div
            {:onClick e->chan
             :onDrag  e->chan
             :style
             {:width width
              :height height
+             :zIndex zIndex
              :flexDirection (str (if (= partition :row) "column" "row"))
              :transition-property "all"
-             :transition-duration "0.3s"
+             :transition-duration "0.0s"
              :display "flex"
              :backgroundColor backgroundColor
              :box-shadow "0 2px 15px 0 rgba(0, 0, 0, 0.2)"}}
            children])))
 
+
 (defn layout-root-div
   [{:keys [width height partition uuid to-chan
-           left top backgroundColor] :as props} & children]
+           transition-duration
+           layout-root/left layout-root/top
+           backgroundColor] :as props} & children]
   (let [e->chan (partial event->chan props)]
+    (print "@layout-root-div: top:" top)
     (html [:div
            {:onClick e->chan
             :onDrag  e->chan
             :style
             {:width  width
-             :position "absolute"
+             :position "fixed" 
              :height height
-             :left   left
-             :top    top
+             :left left
+             :top top
              :z-index 40
              :flexDirection (str (if (= partition :row) "column" "row"))
              :transition-property "all"
-             :transition-duration "0.3s"
+             :transition-duration (or #_transition-duration "0.0s")
              :display "flex"
              :backgroundColor "pink"
              :box-shadow "0 2px 15px 0 rgba(0, 0, 0, 0.2)"}}
            children])))
-
-
 
 
 
@@ -800,32 +774,20 @@
             (om/get-ident this))))
 
 
-#_(defui ResizeTop
-  Object
-  (render [this]
-          (let [e->chan (partial event->chan node)]
-            (html
-             [:div
-              {:onDrag e->chan
-               :style
-               {:width 
-                :height  
-                :left   
-                :top    }}]))))
-
-
 (defui LayoutRoot
   static om/IQuery
   (query [this]
          '[:width :type :height :flexDirection
-           :left :top :uuid :events :coefficient
-           :layou-root/width :layout-root/height
+           :layout-root/left :layout-root/top
+           :uuid :events :coefficient
+           :layout-root/width :layout-root/height
            :to-chan :to-mult :partition :path
            :coef :parent :display :backgroundColor
            :resize {:children ...}])
   Object
   (render [this]
-          (let [{:keys [children resize] :as props} (om/props this)]
+          (let [{:keys [children resize] :as props}
+                (om/props this)]
             (layout-root-div props (map component children)))))
 
 
@@ -843,73 +805,214 @@
             (layout-div props (map component children)))))
 
 
-(defui LayoutDispatch
-  static om/Ident
-  (ident [this {:keys [type uuid]}]
-         (case type
-           :layout/root  [:layout/root]
-           :layout/inner [:layout/inner]))
+(defn add-attributes [ident attrs]
+  (put! mutate-chan
+        {:mutate true
+         :key 'add-attrs
+         :params {:ident ident
+                  :attrs attrs}}))
 
+(defn get-node [ident]
+  (get-in @reconciler ident))
+
+(defn resize-div
+  [{:keys [ident type parent] :as props} style]
+  (html
+   [:div
+    {:onMouseOver
+     (fn [e]
+       (.stopPropagation e)
+       (put! mutate-chan
+             {:mutate true
+              :key 'add-attrs
+              :params {:ident ident
+                       :attrs {:opacity "0.3"}}}))
+     :onMouseOut
+     (fn [e]
+       (.stopPropagation e)
+       (add-attributes ident {:opacity "0.0"}))
+     :onDrag
+     (fn [e]
+       (.stopPropagation e)
+       (let [p (get-node parent)
+             dleft (- (.-clientX e) (:layout-root/left p))]
+         (case type 
+           :resize/left
+           (do
+             (add-attributes parent
+                             {:layout-root/left
+                              (+ (:layout-root/left p) dleft)
+                              :layout-root/width
+                              (+ (:layout-root/width p) (- dleft))
+                              :transition-duration "0.0s"})
+             (put! mutate-chan
+                   {:key 'window-resize
+                    :params {:ident parent}
+                    :mutate true}))
+           :resize/top
+           (let [dtop (- (.-clientY e) (:layout-root/top p))]
+             (do
+               (add-attributes parent
+                               {:layout-root/top
+                                (+ (:layout-root/top p) dtop)
+                                :layout-root/height
+                                (+ (:layout-root/height p) (- dtop))})
+               (put! mutate-chan
+                     {:key    'window-resize
+                      :params {:ident  parent}
+                      :mutate true}))))))
+     :style
+     style}]))
+
+
+#_(defn drag-div
+  [{:keys [ident type other]}]
+  :onDrag
+  
+     (fn [e]
+       (.persist e)
+       (.stopPropagation e)
+       (when (> (.-clientX e) 0) ;; strange bug
+         (case type
+           :resize/top (put! mutate-chan
+                             {:mutate true
+                              :key 'add-attrs
+                              :params {:ident parent
+                                       :attrs {:top (.-clientY e)
+                                               :transition-duration "0.1s"
+                                               :left (.-clientX e)}}})))))
+
+
+#_(defui Drag
   static om/IQuery
   (query [this]
-         {:layout/root   (om/get-query LayoutRoot)
-          :layout/inner  (om/get-query Layout)})
+         '[:width :height])
+  Object
+  (render [this]
+          (let [{:keys [width ident other]}
+                (om/propsthis)]
+            (my-macro
+             [:div
+              {:style
+               {:width  width
+                :height [% 90  (conj other :height)]
+                :left   10
+                }}])))) 
 
+;; I simply must use macros
+
+(defui ResizeLeft
+  static om/IQuery
+  (query [this]
+         '[:type :uuid :ident :opacity :parent :backgroundColor])
+  Object
+  (render [this]
+          (let [{:keys [opacity backgroundColor] :as props} (om/props this)]
+            (resize-div props
+                        {:backgroundColor "#1D1D2A"
+                         :position "absolute"
+                         :height "100%"
+                         :left "-6px"
+                         :opacity (or opacity 0)
+                         :width  "12px"}))))
+
+(defui ResizeTop
+  static om/IQuery
+  (query [this]
+         '[:type :uuid :ident :opacity :parent :backgroundColor])
+  Object
+  (render [this]
+          (let [{:keys [opacity backgroundColor] :as props}
+                (om/props this)]
+            (resize-div props
+                        {:backgroundColor (or backgroundColor
+                                              "#1D1D2A")
+                         :position "absolute"
+                         :height "12px"
+                         :width "100%"
+                         :top "-6px"
+                         :opacity (or opacity 0)}))))
+
+(defui ResizeRight
+  static om/IQuery
+  (query [this]
+         '[:type :uuid :ident :opacity :parent])
+  Object
+  (render [this]
+          (let [{:keys [opacity] :as props} (om/props this)]
+            (resize-div props
+                        {:backgroundColor "#1D1D2A"
+                         :position "absolute"
+                         :height "100%"
+                         :width "12px"
+                         :right "-6px"
+                         :opacity (or opacity 0)})))) 
+
+(defui ResizeBottom
+  static om/IQuery
+  (query [this]
+         '[:type :uuid :ident :opacity :parent])
+  Object
+  (render [this]
+          (let [{:keys [opacity] :as props} (om/props this)]
+            (resize-div props
+                        {:backgroundColor "#1D1D2A"
+                         :position "absolute"
+                         :height "12px"
+                         :bottom "-6px"
+                         :width "100%"
+                         :opacity (or opacity 0)}))))
+
+#_(defui ResizeRoot
+  static om/IQuery
+  (query [this])
   Object
   (render [this]
           (let [[type id] (om/get-ident this)]
-            ((case (name type)
-               :root   layout-root
-               :inner  layout-inner) (om/props this)))))
+            ((case type
+               :resize/left   resize/left-component
+               :resize/top    resize/top-component
+               :resize/bottom resize/right-component
+               :resize/right  resize/bottom-component)
+             (om/props this)))) )
 
-
-(defui Resize
-  static om/IQuery
-  (query [this]
-         '[:side :uuid :type])
-  Object
-  (render [this]
-          (html
-           [:div
-            {:style 
-             {:backgroundColor "green"
-              :position "absolute"
-              :height "100%"
-              :left "-10px"
-              :opacity "0.5"
-              :width  "20px"}}])))
 
 (defui Component
   static om/Ident
   (ident [this {:keys [type uuid]}]
          (case type
-           :resize      [:resize uuid]
-           :layout-root [:layout-root uuid]
-           :layout      [:layout  uuid]
-           :root        [:layout  uuid]))
-  
+           :resize/left   [:resize/left uuid]
+           :resize/top    [:resize/top uuid]
+           :resize/bottom [:resize/bottom uuid]
+           :resize/right  [:resize/right uuid]
+           :layout-root   [:layout-root uuid]
+           :layout        [:layout  uuid]
+           :root          [:layout  uuid]))
   static om/IQuery
   (query [this]
-         {:layout      (om/get-query Layout)
-          :layout-root (om/get-query LayoutRoot)
-          :resize      (om/get-query Resize)})
-  
+         {:layout        (om/get-query Layout)
+          :layout-root   (om/get-query LayoutRoot)
+          :resize/left   (om/get-query ResizeLeft)
+          :resize/right  (om/get-query ResizeRight)
+          :resize/top    (om/get-query ResizeTop)
+          :resize/bottom (om/get-query ResizeBottom)})  
   Object
   (componentWillMount
    [this]
    (when-let [events (:events (om/props this))]
      (listen events
              (:to-mult (om/props this))
-             (om/get-ident this))))
-  
+             (om/get-ident this))))  
   (render [this]
-          (let [{:keys [id] :as props} (om/props this)
-                [type id]              (om/get-ident this)]
+          (let [[type id] (om/get-ident this)]
             ((case type  
-               :layout      layout-inner
-               :layout-root layout-root
-               :resize      resize-component) props))))
-
+               :layout        layout-inner
+               :layout-root   layout-root
+               :resize/left   resize-left-component
+               :resize/right  resize-right-component
+               :resize/top    resize-top-component
+               :resize/bottom resize-bottom-component)
+             (om/props this)))))
 
 
 (defui Root
@@ -920,11 +1023,16 @@
   Object
   (render [this]
           (let [{:keys [layout/node selection]} (om/props this)]
-            (html [:div {:id "layout-root" :style {:display "flex"}}
-                   (selection-root selection)
+            (html [:div {:id "layout-root" :style {:display "flex"
+                                                   :overflow "hidden"}}
                    (component node)]))))
 
-(def resize-component (om/factory Resize))
+
+(def resize-component (om/factory ResizeLeft))
+(def resize-left-component (om/factory ResizeLeft))
+(def resize-right-component (om/factory ResizeRight))
+(def resize-top-component (om/factory ResizeTop))
+(def resize-bottom-component (om/factory ResizeBottom))
 (def selection-root (om/factory Selection))
 (def component (om/factory Component))
 (def layout-inner (om/factory Layout))
@@ -1044,7 +1152,7 @@
   (start [{:keys [state]}]
     (letfn [(walker [to-chan path parent-ident
                      {:keys [children events uuid type] :as node}]
-              (let [ident [:layout uuid]]
+              (let [ident [type uuid]]
                 (if events
                   (let [from-chan (chan (dropping-buffer 10))
                         from-mult (mult from-chan)]

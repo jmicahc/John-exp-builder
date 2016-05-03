@@ -302,7 +302,7 @@
                :key :a
                :uuid 0}]}
     :children
-    [#_{:type :layout-root
+    [{:type :layout-root
       :uuid 50
       :events {:type :or
                :mutes [{:mutate true
@@ -323,36 +323,54 @@
                 {:type :event
                  :key :a
                  :uuid 0}]}
-      :left 500
-      :top  500
-      :coef :const
+      :layout-root/left 500
+      :layout-root/top  500
+      :coef :var
       :layout-root/width  200
       :layout-root/height 400
       :width 200
+      :coefficient 20
       :partition :row
       :children
-      [#_{:type :resize
+      [{:type :resize/left
         :uuid 61}
+       {:type :resize/right
+        :uuid 62}
+       {:type :resize/top
+        :backroungColor "#1D1D2A"
+        :uuid 63}
+       {:type :resize/bottom
+        :uuid 64}
        {:type :layout
         :uuid 51
-        :height 30
-        :coefficient 3
+        :height 20
+        :coefficient 2
+        :coef :const
         :partition :column
-        :backgroundColor "red"}
+        :backgroundColor "#650B0B"}
        {:type :layout
         :uuid 52
         :height 80
         :coefficient 8 
-        :coef :const
+        :coef :coef 
+        :zIndex 10
         :partition :column
         :backgroundColor "gray"}
        {:type :layout
         :uuid 53
         :height 70
         :coefficient 7
+        :zIndex 8
         :coef :var
         :partition :column
-        :backgroundColor "orange"}]}
+        :backgroundColor "#676561"}
+       {:type :layout
+        :uuid 54
+        :height 15
+        :coefficient 1.5
+        :coef :const
+        :partition :column
+        :backgroundColor "#650B0B"}]}
      {:width 350
       :uuid 1
       :coefficient 35.0
@@ -365,20 +383,22 @@
       :children [{:type :layout
                   :uuid 2
                   :height 80
+                  :z-index 10
                   :coefficient 8
                   :coef :const
                   :partition :column
-                  :backgroundColor "gray"}
+                  :backgroundColor "grey"}
                  {:type :layout
+                  :z-index 9
                   :uuid 3
                   :height 70
                   :coefficient 7
                   :coef :var
                   :partition :column
-                  :backgroundColor "orange"}]
+                  :backgroundColor "#676561"}]
       :backgroundColor "blue"
       :coef :var}
-     {:width 350
+     #_{:width 350
       :uuid 4
       :partition :row
       :coefficient 35.0
@@ -398,7 +418,7 @@
                   :partition :column
                   :backgroundColor "black"}]
       :coef :var}
-     {:width 350
+     #_{:width 350
       :coefficient 35.0
       :uuid 7
       :partition :row
